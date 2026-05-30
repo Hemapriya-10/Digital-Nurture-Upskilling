@@ -142,6 +142,50 @@ body {
 
 <div id="arrayOutput"></div>
 
+<h3>Event Handling Demo</h3>
+
+<!-- Register Button -->
+
+<button onclick="registerCommunityEvent()">
+    Register Event
+</button>
+
+<p id="registerMessage"></p>
+
+<br><br>
+
+<!-- Category Filter -->
+
+<label>Select Category:</label>
+
+<select id="categoryFilter"
+        onchange="filterCategory()">
+
+    <option value="All">All</option>
+
+    <option value="Workshop">Workshop</option>
+
+    <option value="Health">Health</option>
+
+    <option value="Sports">Sports</option>
+
+</select>
+
+<div id="categoryOutput"></div>
+
+<br>
+
+<!-- Search Box -->
+
+<label>Search Event:</label>
+
+<input type="text"
+       id="searchBox"
+       placeholder="Type event name..."
+       onkeydown="searchEvent()">
+
+<div id="searchOutput"></div>
+
     <!-- Events Section -->
     <section id="events" class="eventCard">
 

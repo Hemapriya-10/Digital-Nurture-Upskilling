@@ -594,3 +594,116 @@ function cancelEvent() {
     "Registration Cancelled";
 
 }
+// =====================================
+// Event Handling
+// =====================================
+
+const eventCategories = [
+
+    {
+        name: "Technology Workshop",
+        category: "Workshop"
+    },
+
+    {
+        name: "Health Camp",
+        category: "Health"
+    },
+
+    {
+        name: "Sports Meet",
+        category: "Sports"
+    }
+
+];
+
+
+// onclick Example
+
+function registerCommunityEvent() {
+
+    document.getElementById(
+        "registerMessage"
+    ).innerHTML =
+
+    "Successfully Registered for Event!";
+
+}
+
+
+// onchange Example
+
+function filterCategory() {
+
+    const selectedCategory =
+
+        document.getElementById(
+            "categoryFilter"
+        ).value;
+
+    let output = "";
+
+    let filteredEvents =
+
+        eventCategories.filter(event =>
+
+            selectedCategory === "All"
+
+            ||
+
+            event.category === selectedCategory
+
+        );
+
+    filteredEvents.forEach(event => {
+
+        output +=
+
+        `<p>
+            ${event.name}
+         </p>`;
+
+    });
+
+    document.getElementById(
+        "categoryOutput"
+    ).innerHTML = output;
+}
+
+
+// keydown Example
+
+function searchEvent() {
+
+    let keyword =
+
+        document.getElementById(
+            "searchBox"
+        ).value.toLowerCase();
+
+    let result =
+
+        eventCategories.filter(event =>
+
+            event.name
+            .toLowerCase()
+            .includes(keyword)
+
+        );
+
+    let output = "";
+
+    result.forEach(event => {
+
+        output +=
+
+        `<p>
+            ${event.name}
+         </p>`;
+
+    });
+
+    document.getElementById(
+        "searchOutput"
+    ).innerHTML = output;
+}
