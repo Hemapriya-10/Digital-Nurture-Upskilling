@@ -1,4 +1,5 @@
 // =====================================
+// EXERCISE 1
 // JavaScript Basics & Setup
 // =====================================
 
@@ -9,46 +10,64 @@ window.onload = function () {
     alert("Welcome to the Community Portal");
 
 };
+
+
 // =====================================
-// Syntax, Data Types and Operators
+// EXERCISE 2
+// Data Types and Operators
 // =====================================
 
-// const variables
 const eventName = "Technology Workshop";
 
 const eventDate = "2026-06-15";
 
-// let variable
 let availableSeats = 50;
 
-// Template Literal
-document.getElementById("eventInfo").innerHTML =
-    `Event Name: ${eventName}<br>
-     Event Date: ${eventDate}<br>
-     Available Seats: ${availableSeats}`;
+function loadEventInfo() {
 
-// Function to register a seat
+    const eventInfo =
+        document.getElementById(
+            "eventInfo"
+        );
+
+    if (eventInfo) {
+
+        eventInfo.innerHTML =
+
+            `Event Name: ${eventName}<br>
+             Event Date: ${eventDate}<br>
+             Available Seats: ${availableSeats}`;
+    }
+}
+
 function registerSeat() {
 
     if (availableSeats > 0) {
 
         availableSeats--;
 
-        document.getElementById("seatCount").innerHTML =
-            `Remaining Seats: ${availableSeats}`;
+        document.getElementById(
+            "seatCount"
+        ).innerHTML =
 
-        console.log(
-            `Seat Registered. Remaining Seats: ${availableSeats}`
-        );
-
-    } else {
-
-        document.getElementById("seatCount").innerHTML =
-            "No Seats Available";
+            `Remaining Seats:
+             ${availableSeats}`;
 
     }
+
+    else {
+
+        document.getElementById(
+            "seatCount"
+        ).innerHTML =
+
+            "No Seats Available";
+    }
 }
+
+
 // =====================================
+// EXERCISE 3
 // Conditionals, Loops and Error Handling
 // =====================================
 
@@ -74,45 +93,50 @@ const events = [
 
 ];
 
-let eventDisplay = "";
+function loadEvents() {
 
-events.forEach(function(event) {
+    let eventDisplay = "";
 
-    // if-else condition
+    events.forEach(function (event) {
 
-    if(event.isUpcoming && event.seats > 0) {
+        if (
+            event.isUpcoming &&
+            event.seats > 0
+        ) {
 
-        eventDisplay +=
-            `<p>
-                ${event.name}
-                (Seats Available:
-                ${event.seats})
-            </p>`;
-    }
+            eventDisplay +=
 
-    else {
+                `<p>
+                    ${event.name}
+                    (Seats:
+                    ${event.seats})
+                 </p>`;
+        }
 
-        console.log(
-            `${event.name}
-            is not available`
+    });
+
+    const eventList =
+        document.getElementById(
+            "eventList"
         );
+
+    if (eventList) {
+
+        eventList.innerHTML =
+            eventDisplay;
     }
-
-});
-
-document.getElementById("eventList")
-.innerHTML = eventDisplay;
-
-
-// Registration Logic using try-catch
+}
 
 function registerForEvent() {
 
     try {
 
-        let selectedEvent = events[0];
+        let selectedEvent =
+            events[0];
 
-        if(selectedEvent.seats <= 0) {
+        if (
+            selectedEvent.seats <= 0
+        ) {
 
             throw new Error(
                 "No seats available"
@@ -125,29 +149,28 @@ function registerForEvent() {
             "registrationStatus"
         ).innerHTML =
 
-        `Successfully Registered!
-         Remaining Seats:
-         ${selectedEvent.seats}`;
+            `Successfully Registered!
+             Remaining Seats:
+             ${selectedEvent.seats}`;
 
     }
 
-    catch(error) {
+    catch (error) {
 
         document.getElementById(
             "registrationStatus"
         ).innerHTML =
 
-        error.message;
-
-        console.error(error);
+            error.message;
     }
 }
+
+
 // =====================================
-// Functions, Scope, Closures,
+// EXERCISE 4
+// Functions, Closures,
 // Higher Order Functions
 // =====================================
-
-// Event Array
 
 let communityEvents = [
 
@@ -168,9 +191,6 @@ let communityEvents = [
 
 ];
 
-
-// Function 1 - Add Event
-
 function addEvent() {
 
     communityEvents.push({
@@ -185,30 +205,7 @@ function addEvent() {
         "functionOutput"
     ).innerHTML =
 
-    "Sports Meet Added Successfully";
-
-    console.log(
-        "Sports Meet Added"
-    );
-}
-
-
-// Function 2 - Register User
-
-function registerUser() {
-
-    let totalRegistrations =
-        registrationCounter();
-
-    let currentCount =
-        totalRegistrations();
-
-    document.getElementById(
-        "functionOutput"
-    ).innerHTML =
-
-    `Total Registrations:
-     ${currentCount}`;
+        "Sports Meet Added Successfully";
 }
 
 
@@ -218,7 +215,7 @@ function registrationCounter() {
 
     let count = 0;
 
-    return function() {
+    return function () {
 
         count++;
 
@@ -226,53 +223,47 @@ function registrationCounter() {
     };
 }
 
-
-// Create One Global Counter
-
 const totalRegistrationTracker =
     registrationCounter();
 
-
-// Updated Registration Function
-
 function registerUser() {
 
-    let count =
+    const count =
         totalRegistrationTracker();
 
     document.getElementById(
         "functionOutput"
     ).innerHTML =
 
-    `Total Registrations:
-     ${count}`;
+        `Total Registrations:
+         ${count}`;
 }
 
 
-// Function 3 - Filter Events
+// Higher Order Function
 
 function filterEventsByCategory(
     category,
     callback
 ) {
 
-    let filteredEvents =
+    const filteredEvents =
 
         communityEvents.filter(
 
             event =>
 
-            event.category === category
+                event.category ===
+                category
 
         );
 
     callback(filteredEvents);
 }
 
-
-// Callback Function
-
-function displayEvents(events) {
+function displayFilteredEvents(
+    events
+) {
 
     let output = "";
 
@@ -280,10 +271,9 @@ function displayEvents(events) {
 
         output +=
 
-        `<p>
-            ${event.name}
-         </p>`;
-
+            `<p>
+                ${event.name}
+             </p>`;
     });
 
     document.getElementById(
@@ -291,28 +281,30 @@ function displayEvents(events) {
     ).innerHTML = output;
 }
 
-
-// Dynamic Search
-
 function showWorkshopEvents() {
 
     filterEventsByCategory(
 
         "Workshop",
 
-        displayEvents
+        displayFilteredEvents
 
     );
 }
+
+
 // =====================================
+// EXERCISE 5
 // Objects and Prototypes
 // =====================================
 
-// Event Class
-
 class Event {
 
-    constructor(name, date, seats) {
+    constructor(
+        name,
+        date,
+        seats
+    ) {
 
         this.name = name;
 
@@ -322,58 +314,60 @@ class Event {
     }
 }
 
-
-// Prototype Method
-
 Event.prototype.checkAvailability =
-function() {
+    function () {
 
-    if(this.seats > 0) {
+        if (
+            this.seats > 0
+        ) {
 
-        return "Seats Available";
-    }
+            return
+                "Seats Available";
+        }
 
-    return "Event Full";
-};
+        return "Event Full";
+    };
 
+const techEvent =
+    new Event(
 
-// Create Event Object
+        "Technology Workshop",
 
-const techEvent = new Event(
+        "2026-06-15",
 
-    "Technology Workshop",
+        50
 
-    "2026-06-15",
-
-    50
-
-);
-
-
-// Display Event Details
+    );
 
 function showEventDetails() {
 
     let output =
 
-        `<h4>Event Information</h4>`;
+        "<h4>Event Information</h4>";
 
-    // Object.entries()
+    Object.entries(
+        techEvent
+    )
 
-    Object.entries(techEvent)
+        .forEach(
 
-    .forEach(([key, value]) => {
+            ([key, value]) => {
 
-        output +=
+                output +=
 
-        `<p>
+                    `<p>
 
-            <strong>${key}</strong> :
+                        <strong>
+                        ${key}
+                        </strong>
 
-            ${value}
+                        :
+                        ${value}
 
-         </p>`;
-    });
+                     </p>`;
+            }
+
+        );
 
     output +=
 
@@ -388,16 +382,13 @@ function showEventDetails() {
     document.getElementById(
         "objectOutput"
     ).innerHTML = output;
-
-    console.log(
-        Object.entries(techEvent)
-    );
 }
+
+
 // =====================================
+// EXERCISE 6
 // Arrays and Methods
 // =====================================
-
-// Event Array
 
 let eventArray = [
 
@@ -418,9 +409,6 @@ let eventArray = [
 
 ];
 
-
-// .push() Example
-
 function addCommunityEvent() {
 
     eventArray.push({
@@ -435,83 +423,90 @@ function addCommunityEvent() {
         "arrayOutput"
     ).innerHTML =
 
-    "<p>Sports Meet Added Successfully!</p>";
-
-    console.log(eventArray);
+        "Sports Meet Added Successfully!";
 }
-
-
-// .filter() Example
 
 function showMusicEvents() {
 
-    let musicEvents =
+    const musicEvents =
 
         eventArray.filter(
 
             event =>
 
-            event.category === "Music"
+                event.category ===
+                "Music"
 
         );
 
     let output =
-
         "<h4>Music Events</h4>";
 
-    musicEvents.forEach(event => {
+    musicEvents.forEach(
+        event => {
 
-        output +=
+            output +=
 
-        `<p>${event.name}</p>`;
-
-    });
+                `<p>
+                    ${event.name}
+                 </p>`;
+        }
+    );
 
     document.getElementById(
         "arrayOutput"
     ).innerHTML = output;
 }
 
-
-// .map() Example
-
 function showFormattedEvents() {
 
-    let formattedEvents =
+    const formattedEvents =
 
         eventArray.map(
 
             event =>
 
-            `Workshop on ${event.name}`
+                `Workshop on
+                 ${event.name}`
 
         );
 
     let output =
+        "<h4>Formatted Events</h4>";
 
-        "<h4>Formatted Event Cards</h4>";
+    formattedEvents.forEach(
+        event => {
 
-    formattedEvents.forEach(event => {
+            output +=
 
-        output +=
-
-        `<div class="eventCard">
-
-            ${event}
-
-         </div>`;
-
-    });
+                `<div class="eventCard">
+                    ${event}
+                 </div>`;
+        }
+    );
 
     document.getElementById(
         "arrayOutput"
     ).innerHTML = output;
 }
+
+
+// Load Initial Data
+
+window.addEventListener(
+    "load",
+    function () {
+
+        loadEventInfo();
+
+        loadEvents();
+
+    }
+);
 // =====================================
+// EXERCISE 7
 // DOM Manipulation
 // =====================================
-
-// Event Data
 
 const domEvents = [
 
@@ -529,12 +524,7 @@ const domEvents = [
 
 ];
 
-
-// Display Events
-
-function displayEvents() {
-
-    // querySelector()
+function displayDOMEvents() {
 
     const container =
 
@@ -542,59 +532,54 @@ function displayEvents() {
             "#domEventContainer"
         );
 
-    // Clear Existing Content
-
     container.innerHTML = "";
-
-    // createElement()
 
     domEvents.forEach(event => {
 
         const card =
 
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
         card.className =
             "eventCard";
 
         card.innerHTML =
 
-            `<h4>${event.name}</h4>`;
+            `<h4>
+                ${event.name}
+             </h4>`;
 
-        // appendChild()
-
-        container.appendChild(card);
+        container.appendChild(
+            card
+        );
 
     });
 
 }
 
-
-// Register Event
-
-function registerEvent() {
+function registerDOMEvent() {
 
     document.querySelector(
         "#domStatus"
     ).innerHTML =
 
-    "Successfully Registered!";
-
+        "Successfully Registered!";
 }
 
-
-// Cancel Event
-
-function cancelEvent() {
+function cancelDOMEvent() {
 
     document.querySelector(
         "#domStatus"
     ).innerHTML =
 
-    "Registration Cancelled";
-
+        "Registration Cancelled";
 }
+
+
 // =====================================
+// EXERCISE 8
 // Event Handling
 // =====================================
 
@@ -617,21 +602,14 @@ const eventCategories = [
 
 ];
 
-
-// onclick Example
-
 function registerCommunityEvent() {
 
     document.getElementById(
         "registerMessage"
     ).innerHTML =
 
-    "Successfully Registered for Event!";
-
+        "Successfully Registered!";
 }
-
-
-// onchange Example
 
 function filterCategory() {
 
@@ -643,76 +621,95 @@ function filterCategory() {
 
     let output = "";
 
-    let filteredEvents =
+    const filteredEvents =
 
-        eventCategories.filter(event =>
+        eventCategories.filter(
 
-            selectedCategory === "All"
+            event =>
 
-            ||
+                selectedCategory ===
+                "All"
 
-            event.category === selectedCategory
+                ||
+
+                event.category ===
+                selectedCategory
 
         );
 
-    filteredEvents.forEach(event => {
+    filteredEvents.forEach(
 
-        output +=
+        event => {
 
-        `<p>
-            ${event.name}
-         </p>`;
+            output +=
 
-    });
+                `<p>
+                    ${event.name}
+                 </p>`;
+        }
+
+    );
 
     document.getElementById(
         "categoryOutput"
     ).innerHTML = output;
 }
 
-
-// keydown Example
-
 function searchEvent() {
 
-    let keyword =
+    const keyword =
 
         document.getElementById(
             "searchBox"
-        ).value.toLowerCase();
+        )
 
-    let result =
+            .value
 
-        eventCategories.filter(event =>
+            .toLowerCase();
 
-            event.name
-            .toLowerCase()
-            .includes(keyword)
+    const result =
+
+        eventCategories.filter(
+
+            event =>
+
+                event.name
+
+                    .toLowerCase()
+
+                    .includes(
+                        keyword
+                    )
 
         );
 
     let output = "";
 
-    result.forEach(event => {
+    result.forEach(
 
-        output +=
+        event => {
 
-        `<p>
-            ${event.name}
-         </p>`;
+            output +=
 
-    });
+                `<p>
+                    ${event.name}
+                 </p>`;
+        }
+
+    );
 
     document.getElementById(
         "searchOutput"
     ).innerHTML = output;
 }
-// =====================================
-// Async JS, Promises, Async/Await
-// =====================================
 
 
-// Show Loading Spinner
+// =====================================
+// EXERCISE 9
+// Async JS
+// Promises
+// Async / Await
+// =====================================
 
 function showLoading() {
 
@@ -720,11 +717,8 @@ function showLoading() {
         "loadingSpinner"
     ).innerHTML =
 
-    "<h4>Loading...</h4>";
+        "<h4>Loading...</h4>";
 }
-
-
-// Hide Loading Spinner
 
 function hideLoading() {
 
@@ -734,14 +728,131 @@ function hideLoading() {
 }
 
 
+// Using .then()
+
+function fetchEventsUsingThen() {
+
+    showLoading();
+
+    fetch(
+        "https://jsonplaceholder.typicode.com/users"
+    )
+
+        .then(
+            response =>
+                response.json()
+        )
+
+        .then(data => {
+
+            hideLoading();
+
+            let output =
+
+                "<h4>Events Loaded Using .then()</h4>";
+
+            data
+
+                .slice(0, 5)
+
+                .forEach(user => {
+
+                    output +=
+
+                        `<p>
+                            ${user.name}
+                         </p>`;
+                });
+
+            document.getElementById(
+                "asyncOutput"
+            ).innerHTML = output;
+
+        })
+
+        .catch(error => {
+
+            hideLoading();
+
+            document.getElementById(
+                "asyncOutput"
+            ).innerHTML =
+
+                "Error Loading Data";
+
+            console.error(error);
+
+        });
+
+}
+
+
+// Async Await
+
+async function fetchEventsAsync() {
+
+    try {
+
+        showLoading();
+
+        const response =
+
+            await fetch(
+
+                "https://jsonplaceholder.typicode.com/users"
+
+            );
+
+        const data =
+
+            await response.json();
+
+        hideLoading();
+
+        let output =
+
+            "<h4>Events Loaded Using Async/Await</h4>";
+
+        data
+
+            .slice(0, 5)
+
+            .forEach(user => {
+
+                output +=
+
+                    `<p>
+                        ${user.name}
+                     </p>`;
+            });
+
+        document.getElementById(
+            "asyncOutput"
+        ).innerHTML = output;
+
+    }
+
+    catch (error) {
+
+        hideLoading();
+
+        document.getElementById(
+            "asyncOutput"
+        ).innerHTML =
+
+            "Error Loading Data";
+
+        console.error(error);
+
+    }
+
+}
+
+
 // =====================================
-// FETCH USING .then() AND .catch()
-// =====================================
-// =====================================
+// EXERCISE 10
 // Modern JavaScript Features
 // =====================================
-
-// const and let
 
 const modernEvents = [
 
@@ -766,17 +877,17 @@ const modernEvents = [
 ];
 
 
-// Default Parameter Function
+// Default Parameter
 
 function getEventInfo(
+
     eventName = "Community Event"
+
 ) {
 
-    return `Event Name: ${eventName}`;
+    return `Event Name:
+            ${eventName}`;
 }
-
-
-// Display Modern Features
 
 function showModernFeatures() {
 
@@ -785,9 +896,15 @@ function showModernFeatures() {
     // Default Parameter
 
     output +=
-        `<h4>Default Parameter</h4>
+
+        `<h4>
+            Default Parameter
+         </h4>
+
          <p>
+
             ${getEventInfo()}
+
          </p>`;
 
 
@@ -804,18 +921,24 @@ function showModernFeatures() {
     } = modernEvents[0];
 
     output +=
-        `<h4>Destructuring Example</h4>
+
+        `<h4>
+            Destructuring
+         </h4>
 
          <p>
-            Name: ${name}
+            Name:
+            ${name}
          </p>
 
          <p>
-            Category: ${category}
+            Category:
+            ${category}
          </p>
 
          <p>
-            Seats: ${seats}
+            Seats:
+            ${seats}
          </p>`;
 
 
@@ -831,22 +954,29 @@ function showModernFeatures() {
 
             event =>
 
-            event.category === "Music"
+                event.category ===
+                "Music"
 
         );
 
     output +=
-        `<h4>Spread Operator + Filter</h4>`;
 
-    filteredEvents.forEach(event => {
+        `<h4>
+            Spread Operator
+         </h4>`;
 
-        output +=
+    filteredEvents.forEach(
 
-        `<p>
-            ${event.name}
-         </p>`;
+        event => {
 
-    });
+            output +=
+
+                `<p>
+                    ${event.name}
+                 </p>`;
+        }
+
+    );
 
     document.getElementById(
         "modernOutput"
@@ -857,258 +987,131 @@ function showModernFeatures() {
         clonedEvents
     );
 }
-function fetchEventsUsingThen() {
-
-    showLoading();
-
-    fetch(
-        "https://jsonplaceholder.typicode.com/users"
-    )
-
-    .then(response => {
-
-        return response.json();
-
-    })
-
-    .then(data => {
-
-        hideLoading();
-
-        let output =
-
-            "<h4>Events Loaded Using .then()</h4>";
-
-        data.slice(0,5).forEach(user => {
-
-            output +=
-
-            `<p>
-                ${user.name}
-             </p>`;
-
-        });
-
-        document.getElementById(
-            "asyncOutput"
-        ).innerHTML = output;
-
-    })
-
-    .catch(error => {
-
-        hideLoading();
-
-        document.getElementById(
-            "asyncOutput"
-        ).innerHTML =
-
-        "Error Loading Data";
-
-        console.error(error);
-
-    });
-
-}
-
-
 // =====================================
-// FETCH USING ASYNC/AWAIT
-// =====================================
-
-async function fetchEventsAsync() {
-
-    try {
-
-        showLoading();
-
-        const response =
-
-            await fetch(
-                "https://jsonplaceholder.typicode.com/users"
-            );
-
-        const data =
-            await response.json();
-
-        hideLoading();
-
-        let output =
-
-            "<h4>Events Loaded Using Async/Await</h4>";
-
-        data.slice(0,5).forEach(user => {
-
-            output +=
-
-            `<p>
-                ${user.name}
-             </p>`;
-
-        });
-
-        document.getElementById(
-            "asyncOutput"
-        ).innerHTML = output;
-
-    }
-
-    catch(error) {
-
-        hideLoading();
-
-        document.getElementById(
-            "asyncOutput"
-        ).innerHTML =
-
-        "Error Loading Data";
-
-        console.error(error);
-
-    }
-
-}
-// =====================================
+// EXERCISE 11
 // Working with Forms
 // =====================================
 
-document
-.getElementById(
-    "registrationForm"
-)
-.addEventListener(
+const registrationForm =
 
-    "submit",
+    document.getElementById(
+        "registrationForm"
+    );
 
-    function(event) {
+if (registrationForm) {
 
-        // Prevent Default Form Submission
+    registrationForm.addEventListener(
 
-        event.preventDefault();
+        "submit",
 
-        // Clear Previous Errors
+        function (event) {
 
-        document.getElementById(
-            "nameError"
-        ).innerHTML = "";
-
-        document.getElementById(
-            "emailError"
-        ).innerHTML = "";
-
-        document.getElementById(
-            "eventError"
-        ).innerHTML = "";
-
-        // form.elements
-
-        const form =
-
-            event.target;
-
-        const name =
-
-            form.elements[
-                "userName"
-            ].value;
-
-        const email =
-
-            form.elements[
-                "userEmail"
-            ].value;
-
-        const selectedEvent =
-
-            form.elements[
-                "eventName"
-            ].value;
-
-        let isValid = true;
-
-        // Name Validation
-
-        if(name.trim() === "") {
+            event.preventDefault();
 
             document.getElementById(
                 "nameError"
-            ).innerHTML =
-
-            "Name is required";
-
-            isValid = false;
-        }
-
-        // Email Validation
-
-        if(email.trim() === "") {
+            ).innerHTML = "";
 
             document.getElementById(
                 "emailError"
-            ).innerHTML =
-
-            "Email is required";
-
-            isValid = false;
-        }
-
-        // Event Validation
-
-        if(selectedEvent === "") {
+            ).innerHTML = "";
 
             document.getElementById(
                 "eventError"
-            ).innerHTML =
+            ).innerHTML = "";
 
-            "Please select an event";
+            const form =
+                event.target;
 
-            isValid = false;
+            const name =
+                form.elements[
+                    "userName"
+                ].value;
+
+            const email =
+                form.elements[
+                    "userEmail"
+                ].value;
+
+            const selectedEvent =
+                form.elements[
+                    "eventName"
+                ].value;
+
+            let isValid = true;
+
+            if (
+                name.trim() === ""
+            ) {
+
+                document.getElementById(
+                    "nameError"
+                ).innerHTML =
+                    "Name is required";
+
+                isValid = false;
+            }
+
+            if (
+                email.trim() === ""
+            ) {
+
+                document.getElementById(
+                    "emailError"
+                ).innerHTML =
+                    "Email is required";
+
+                isValid = false;
+            }
+
+            if (
+                selectedEvent === ""
+            ) {
+
+                document.getElementById(
+                    "eventError"
+                ).innerHTML =
+                    "Please select an event";
+
+                isValid = false;
+            }
+
+            if (isValid) {
+
+                document.getElementById(
+                    "formOutput"
+                ).innerHTML =
+
+                    `<h4>
+                        Registration Successful
+                     </h4>
+
+                     <p>
+                        Name:
+                        ${name}
+                     </p>
+
+                     <p>
+                        Email:
+                        ${email}
+                     </p>
+
+                     <p>
+                        Event:
+                        ${selectedEvent}
+                     </p>`;
+            }
+
         }
 
-        // Success
+    );
 
-        if(isValid) {
+}
 
-            document.getElementById(
-                "formOutput"
-            ).innerHTML =
-
-            `<h4>
-
-                Registration Successful
-
-             </h4>
-
-             <p>
-
-                Name:
-                ${name}
-
-             </p>
-
-             <p>
-
-                Email:
-                ${email}
-
-             </p>
-
-             <p>
-
-                Event:
-                ${selectedEvent}
-
-             </p>`;
-        }
-
-    }
-
-);
-// =====================================
-// AJAX & Fetch API
-// =====================================
 
 // =====================================
+// EXERCISE 12 & 13
+// AJAX + FETCH API
 // Debugging and Testing
 // =====================================
 
@@ -1137,7 +1140,7 @@ function submitRegistration() {
         "ajaxStatus"
     ).innerHTML =
 
-    "<h4>Sending Registration...</h4>";
+        "<h4>Sending Registration...</h4>";
 
     setTimeout(() => {
 
@@ -1155,7 +1158,7 @@ function submitRegistration() {
                 headers: {
 
                     "Content-Type":
-                    "application/json"
+                        "application/json"
 
                 },
 
@@ -1167,98 +1170,103 @@ function submitRegistration() {
 
         )
 
-        .then(response => {
+            .then(response => {
 
-            console.log(
-                "Response Received:",
-                response
-            );
-
-            if(!response.ok) {
-
-                throw new Error(
-                    "Registration Failed"
+                console.log(
+                    "Response Received:",
+                    response
                 );
-            }
 
-            return response.json();
+                if (
+                    !response.ok
+                ) {
 
-        })
+                    throw new Error(
+                        "Registration Failed"
+                    );
+                }
 
-        .then(data => {
+                return response.json();
 
-            console.log(
-                "Response Data:",
-                data
-            );
+            })
 
-            document.getElementById(
-                "ajaxStatus"
-            ).innerHTML =
+            .then(data => {
 
-            `<h4 style="color:green;">
-                Registration Successful!
-             </h4>
+                console.log(
+                    "Response Data:",
+                    data
+                );
 
-             <p>
-                Registration ID:
-                ${data.id}
-             </p>`;
+                document.getElementById(
+                    "ajaxStatus"
+                ).innerHTML =
 
-        })
+                    `<h4 style="color:green;">
+                        Registration Successful!
+                     </h4>
 
-        .catch(error => {
+                     <p>
+                        Registration ID:
+                        ${data.id}
+                     </p>`;
 
-            console.error(
-                "Error:",
-                error
-            );
+            })
 
-            document.getElementById(
-                "ajaxStatus"
-            ).innerHTML =
+            .catch(error => {
 
-            `<h4 style="color:red;">
-                Registration Failed
-             </h4>`;
-        });
+                console.error(
+                    error
+                );
+
+                document.getElementById(
+                    "ajaxStatus"
+                ).innerHTML =
+
+                    `<h4 style="color:red;">
+                        Registration Failed
+                     </h4>`;
+
+            });
 
     }, 2000);
 
 }
+
+
 // =====================================
-// jQuery and JavaScript Frameworks
+// EXERCISE 14
+// jQuery and Frameworks
 // =====================================
 
 $(document).ready(function () {
 
-    // Click Event
+    $("#registerBtn").click(
+        function () {
 
-    $("#registerBtn").click(function () {
+            alert(
+                "Registered Successfully using jQuery!"
+            );
 
-        alert(
-            "Registered Successfully using jQuery!"
-        );
+        }
+    );
 
-    });
+    $("#showCardBtn").click(
+        function () {
 
-    // Fade In
+            $("#jqueryCard")
+                .fadeIn(1000);
 
-    $("#showCardBtn").click(function () {
+        }
+    );
 
-        $("#jqueryCard").fadeIn(1000);
+    $("#hideCardBtn").click(
+        function () {
 
-    });
+            $("#jqueryCard")
+                .fadeOut(1000);
 
-    // Fade Out
-
-    $("#hideCardBtn").click(function () {
-
-        $("#jqueryCard").fadeOut(1000);
-
-    });
-
-    // Framework Benefit
+        }
+    );
 
     $("#frameworkBenefit").html(
 
@@ -1266,7 +1274,7 @@ $(document).ready(function () {
 
         "<p>" +
 
-        "React and Vue provide component-based architecture, making large applications easier to develop, maintain, and scale."
+        "React and Vue provide component-based architecture, making applications easier to develop, maintain and scale."
 
         +
 
@@ -1275,6 +1283,293 @@ $(document).ready(function () {
     );
 
 });
-git add .
-git commit -m "Completed JavaScript Exercise 14 - jQuery and Frameworks"
-git push origin main
+
+
+// =====================================
+// HTML EXERCISE SUPPORT FUNCTIONS
+// =====================================
+
+// Registration Form
+
+function showConfirmation(event) {
+
+    event.preventDefault();
+
+    document.getElementById(
+        "confirmationMessage"
+    ).innerHTML =
+
+        "Registration Submitted Successfully!";
+}
+
+
+// Phone Validation
+
+function validatePhone() {
+
+    const phone =
+
+        document.getElementById(
+            "phone"
+        ).value;
+
+    const phoneMessage =
+
+        document.getElementById(
+            "phoneMessage"
+        );
+
+    if (
+        /^\d{10}$/.test(
+            phone
+        )
+    ) {
+
+        phoneMessage.innerHTML =
+            "Valid Phone Number";
+
+        phoneMessage.style.color =
+            "green";
+
+    }
+
+    else {
+
+        phoneMessage.innerHTML =
+            "Enter a valid 10-digit number";
+
+        phoneMessage.style.color =
+            "red";
+    }
+
+}
+
+
+// Event Fee
+
+function showFee() {
+
+    const fee =
+
+        document.getElementById(
+            "eventSelect"
+        ).value;
+
+    document.getElementById(
+        "feeDisplay"
+    ).innerHTML =
+
+        `Event Fee:
+         ₹${fee}`;
+}
+
+
+// Character Count
+
+function countCharacters() {
+
+    const count =
+
+        document.getElementById(
+            "feedbackText"
+        ).value.length;
+
+    document.getElementById(
+        "charCount"
+    ).innerHTML =
+
+        `Characters:
+         ${count}`;
+}
+
+
+// Feedback
+
+function submitFeedback() {
+
+    document.getElementById(
+        "confirmation"
+    ).innerHTML =
+
+        "Feedback Submitted Successfully!";
+}
+
+
+// Enlarge Image
+
+function enlargeImage() {
+
+    const image =
+
+        document.getElementById(
+            "eventImage"
+        );
+
+    image.style.width =
+
+        image.style.width === "500px"
+
+            ? "250px"
+
+            : "500px";
+}
+
+
+// Video Ready
+
+function videoReady() {
+
+    document.getElementById(
+        "videoStatus"
+    ).innerHTML =
+
+        "Video Ready To Play";
+}
+
+
+// Local Storage
+
+function savePreference() {
+
+    const preference =
+
+        document.getElementById(
+            "eventType"
+        ).value;
+
+    localStorage.setItem(
+        "preferredEvent",
+        preference
+    );
+
+    document.getElementById(
+        "preferenceMessage"
+    ).innerHTML =
+
+        "Preference Saved!";
+}
+
+
+// Load Preference
+
+window.addEventListener(
+
+    "load",
+
+    function () {
+
+        const savedPreference =
+
+            localStorage.getItem(
+                "preferredEvent"
+            );
+
+        if (
+            savedPreference
+        ) {
+
+            const eventType =
+
+                document.getElementById(
+                    "eventType"
+                );
+
+            if (
+                eventType
+            ) {
+
+                eventType.value =
+                    savedPreference;
+            }
+
+        }
+
+    }
+
+);
+
+
+// Clear Storage
+
+function clearPreferences() {
+
+    localStorage.clear();
+
+    sessionStorage.clear();
+
+    document.getElementById(
+        "preferenceMessage"
+    ).innerHTML =
+
+        "Preferences Cleared!";
+}
+
+
+// Geolocation
+
+function findLocation() {
+
+    if (
+        navigator.geolocation
+    ) {
+
+        navigator.geolocation.getCurrentPosition(
+
+            function (position) {
+
+                document.getElementById(
+                    "locationResult"
+                ).innerHTML =
+
+                    `Latitude:
+                     ${position.coords.latitude}
+
+                     <br>
+
+                     Longitude:
+                     ${position.coords.longitude}`;
+
+            },
+
+            function (error) {
+
+                document.getElementById(
+                    "locationResult"
+                ).innerHTML =
+
+                    error.message;
+
+            },
+
+            {
+
+                enableHighAccuracy: true,
+
+                timeout: 10000
+
+            }
+
+        );
+
+    }
+
+    else {
+
+        document.getElementById(
+            "locationResult"
+        ).innerHTML =
+
+            "Geolocation Not Supported";
+    }
+
+}
+
+
+// Warn Before Leaving Page
+
+window.onbeforeunload =
+    function () {
+
+        return "Unsaved changes may be lost.";
+
+    };

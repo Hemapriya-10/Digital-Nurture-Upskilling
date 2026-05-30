@@ -2,694 +2,988 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
     <title>Local Community Event Portal</title>
 
-    <!-- Internal CSS -->
+    <!-- Internal CSS (Exercise 1) -->
     <style>
 
-body {
+        body {
 
-    font-family: 'Poppins', sans-serif;
+            background-color: #dfe9f3;
 
-    font-size: 16px;
+        }
 
-    line-height: 1.8;
-
-    background-color: #dfe9f3;
-
-    background-image: url("images/tree-plantation.png");
-
-    background-size: cover;
-
-    background-position: center;
-
-    background-attachment: fixed;
-}
     </style>
 
+    <!-- Google Font (CSS Exercise 5) -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+          rel="stylesheet">
+
     <!-- External CSS -->
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+          href="style.css">
+
 </head>
 
 <body>
 
     <!-- Navigation Section -->
+
     <header id="mainHeader">
+
         <!-- Welcome Banner -->
 
-<div id="welcomeBanner">
+        <div id="welcomeBanner">
 
-    <h2>Welcome Back, Community Member!</h2>
+            <h2>
+                Welcome Back, Community Member!
+            </h2>
 
-    <p>
-        Stay updated with the latest community activities.
-    </p>
+            <p>
+                Stay updated with the latest community activities.
+            </p>
 
-    <p>
+            <p>
 
-        <span style="color:red; font-weight:bold;">
-            Special Offer:
-        </span>
+                <span style="color:red;font-weight:bold;">
+                    Special Offer:
+                </span>
 
-        Register today and get priority access to premium events!
+                Register today and get priority access to premium events!
 
-    </p>
+            </p>
 
-</div>
+        </div>
+
+        <!-- Inline Style Example -->
+
         <h1 style="color:red;">
-    Local Community Event Portal
-</h1>
+            Local Community Event Portal
+        </h1>
 
         <nav>
-            <a href="#home">Home</a> |
-            <a href="#events">Events</a> |
-            <a href="#gallery">Gallery</a> |
-            <a href="#registration">Register</a> |
-            <a href="#feedback">Feedback</a> |
-            <a href="#videoInvite">Video Invite</a> |
-            <a href="#location">Nearby Events</a> |
-            <a href="#contact">Contact</a> |
-            <a href="help.html" target="_blank">Help</a>
+
+            <a href="#home">Home</a>
+
+            <a href="#events">Events</a>
+
+            <a href="#gallery">Gallery</a>
+
+            <a href="#registration">Register</a>
+
+            <a href="#feedback">Feedback</a>
+
+            <a href="#videoInvite">Video</a>
+
+            <a href="#location">Location</a>
+
+            <a href="#contact">Contact</a>
+
+            <a href="help.html"
+               target="_blank">
+                Help
+            </a>
+
         </nav>
+
     </header>
 
-    <!-- Home Section -->
-    <section id="home">
-        <h2>Home</h2>
-        <p>
-            Welcome to the Local Community Event Portal.
-            Stay informed about upcoming events and activities.
-        </p>
-        <button class="cta-button">
-    Join Community Events
-</button>
-<h3>Event Information</h3>
+    <!-- Main Section -->
 
-<p id="eventInfo"></p>
+    <main>
 
-<button onclick="registerSeat()">
-    Register for Event
-</button>
+        <!-- Home Section -->
 
-<p id="seatCount"></p>
-<h3>Available Events</h3>
+        <section id="home"
+                 class="eventCard">
 
-<div id="eventList"></div>
+            <h2>Home</h2>
 
-<button onclick="registerForEvent()">
-    Register Event
-</button>
+            <p>
 
-<p id="registrationStatus"></p>
-    </section>
+                Welcome to the Local Community Event Portal.
 
-    <h3>Async JavaScript Demo</h3>
+                This platform helps residents discover events,
+                register online, locate nearby activities,
+                and stay connected with their community.
 
-<button onclick="fetchEventsUsingThen()">
-    Fetch Events (.then)
-</button>
+            </p>
 
-<button onclick="fetchEventsAsync()">
-    Fetch Events (Async/Await)
-</button>
+            <button class="cta-button">
 
-<br><br>
+                Join Community Events
 
-<div id="loadingSpinner"></div>
+            </button>
 
-<div id="asyncOutput"></div>
+            <hr>
 
-<h3>Functions and Closures Demo</h3>
+            <!-- JavaScript Exercise 2 -->
 
-<button onclick="addEvent()">
-    Add Event
-</button>
+            <h3>Event Information</h3>
 
-<button onclick="registerUser()">
-    Register User
-</button>
+            <p id="eventInfo"></p>
 
-<button onclick="showWorkshopEvents()">
-    Show Workshop Events
-</button>
+            <button onclick="registerSeat()">
 
-<div id="functionOutput"></div>
+                Register for Event
 
-<div id="filterOutput"></div>
+            </button>
 
-<h3>Arrays and Methods Demo</h3>
+            <p id="seatCount"></p>
 
-<button onclick="addCommunityEvent()">
-    Add New Event
-</button>
+            <hr>
 
-<button onclick="showMusicEvents()">
-    Show Music Events
-</button>
+            <!-- JavaScript Exercise 3 -->
 
-<button onclick="showFormattedEvents()">
-    Show Formatted Events
-</button>
+            <h3>Available Events</h3>
 
-<div id="arrayOutput"></div>
+            <div id="eventList"></div>
 
-<h3>Event Handling Demo</h3>
+            <button onclick="registerForEvent()">
 
-<!-- Register Button -->
+                Register Event
 
-<button onclick="registerCommunityEvent()">
-    Register Event
-</button>
+            </button>
 
-<p id="registerMessage"></p>
+            <p id="registrationStatus"></p>
 
-<br><br>
+        </section>
 
-<!-- Category Filter -->
+        <!-- Functions and Closures -->
 
-<label>Select Category:</label>
+        <section class="eventCard">
 
-<select id="categoryFilter"
-        onchange="filterCategory()">
+            <h2>Functions and Closures Demo</h2>
 
-    <option value="All">All</option>
+            <button onclick="addEvent()">
 
-    <option value="Workshop">Workshop</option>
+                Add Event
 
-    <option value="Health">Health</option>
+            </button>
 
-    <option value="Sports">Sports</option>
+            <button onclick="registerUser()">
 
-</select>
+                Register User
 
-<div id="categoryOutput"></div>
+            </button>
 
-<br>
+            <button onclick="showWorkshopEvents()">
 
-<!-- Search Box -->
+                Show Workshop Events
 
-<label>Search Event:</label>
+            </button>
 
-<input type="text"
-       id="searchBox"
-       placeholder="Type event name..."
-       onkeydown="searchEvent()">
+            <div id="functionOutput"></div>
 
-<div id="searchOutput"></div>
+            <div id="filterOutput"></div>
 
-    <!-- Events Section -->
-    <section id="events" class="eventCard">
+        </section>
 
-    <h2 class="highlight">Upcoming Events</h2>
+        <!-- Objects and Prototypes -->
 
-    <ul>
+        <section class="eventCard">
 
-        <li>Community Clean-Up Drive</li>
+            <h2>Objects and Prototypes Demo</h2>
 
-        <li class="highlight">
-            Health Awareness Camp
-        </li>
+            <button onclick="showEventDetails()">
 
-        <li>Technology Workshop</li>
+                Show Event Details
 
-    </ul>
+            </button>
 
-</section>
-<h3>jQuery Demo</h3>
+            <div id="objectOutput"></div>
 
-<button id="registerBtn">
-    Register Using jQuery
-</button>
+        </section>
 
-<button id="showCardBtn">
-    Show Event Card
-</button>
+        <!-- Arrays and Methods -->
 
-<button id="hideCardBtn">
-    Hide Event Card
-</button>
+        <section class="eventCard">
 
-<div id="jqueryCard"
-     class="eventCard"
-     style="display:none; margin-top:20px;">
+            <h2>Arrays and Methods Demo</h2>
 
-    <h4>Technology Workshop</h4>
+            <button onclick="addCommunityEvent()">
 
-    <p>
-        Learn modern web development using JavaScript.
-    </p>
+                Add New Event
 
-</div>
+            </button>
 
-<div id="frameworkBenefit"></div>
-<h3>AJAX & Fetch API Demo</h3>
+            <button onclick="showMusicEvents()">
 
-<button onclick="submitRegistration()">
-    Send Registration
-</button>
+                Show Music Events
 
-<br><br>
+            </button>
 
-<div id="ajaxStatus"></div>
+            <button onclick="showFormattedEvents()">
 
-<h3>Form Validation Demo</h3>
+                Show Formatted Events
 
-<form id="registrationForm">
+            </button>
 
-    <label>Name:</label><br>
+            <div id="arrayOutput"></div>
 
-    <input type="text"
-           name="userName">
+        </section>
 
-    <span id="nameError"
-          style="color:red;"></span>
+        <!-- DOM Manipulation -->
 
-    <br><br>
+        <section class="eventCard">
 
-    <label>Email:</label><br>
+            <h2>DOM Manipulation Demo</h2>
 
-    <input type="email"
-           name="userEmail">
+            <button onclick="displayDOMEvents()">
 
-    <span id="emailError"
-          style="color:red;"></span>
+                Display Events
 
-    <br><br>
+            </button>
 
-    <label>Select Event:</label><br>
+            <button onclick="registerDOMEvent()">
 
-    <select name="eventName">
+                Register Event
 
-        <option value="">
-            Choose Event
-        </option>
+            </button>
 
-        <option value="Technology Workshop">
-            Technology Workshop
-        </option>
+            <button onclick="cancelDOMEvent()">
 
-        <option value="Health Camp">
-            Health Camp
-        </option>
+                Cancel Event
 
-        <option value="Sports Meet">
-            Sports Meet
-        </option>
+            </button>
 
-    </select>
+            <div id="domEventContainer"></div>
 
-    <span id="eventError"
-          style="color:red;"></span>
+            <p id="domStatus"></p>
 
-    <br><br>
+        </section>
 
-    <button type="submit">
-        Register
-    </button>
+        <!-- Event Handling -->
 
-</form>
+        <section class="eventCard">
 
-<br>
+            <h2>Event Handling Demo</h2>
 
-<div id="formOutput"></div>
-<h3>Modern JavaScript Features Demo</h3>
+            <button onclick="registerCommunityEvent()">
 
-<button onclick="showModernFeatures()">
-    Show Modern JS Features
-</button>
+                Register Event
 
-<div id="modernOutput"></div>
-<h3>Objects and Prototypes Demo</h3>
+            </button>
 
-<button onclick="showEventDetails()">
-    Show Event Details
-</button>
+            <p id="registerMessage"></p>
 
-<div id="objectOutput"></div>
+            <br>
 
-<h3>DOM Manipulation Demo</h3>
+            <label>
 
-<button onclick="displayEvents()">
-    Display Events
-</button>
+                Select Category
 
-<button onclick="registerEvent()">
-    Register Event
-</button>
+            </label>
 
-<button onclick="cancelEvent()">
-    Cancel Event
-</button>
+            <select id="categoryFilter"
+                    onchange="filterCategory()">
 
-<div id="domEventContainer"></div>
+                <option value="All">
+                    All
+                </option>
 
-<p id="domStatus"></p>
-<!-- Event Gallery Section -->
+                <option value="Workshop">
+                    Workshop
+                </option>
 
-<section id="gallery" class="eventCard">
+                <option value="Health">
+                    Health
+                </option>
 
-    <h2 class="highlight">Past Community Events</h2>
+                <option value="Sports">
+                    Sports
+                </option>
 
-    <table>
-        
+            </select>
 
-        <tr>
+            <div id="categoryOutput"></div>
 
-            <td>
-                <img src="images/cleanup-drive.png"
-                     alt="Community Clean-Up Drive"
-                     title="Community Clean-Up Drive"
-                     class="event-image">
+            <br>
 
-                <p>Community Clean-Up Drive</p>
-            </td>
+            <label>
 
-            <td>
-                <img src="images/health-camp.png"
-                     alt="Health Awareness Camp"
-                     title="Health Awareness Camp"
-                     class="event-image">
+                Search Event
 
-                <p>Health Awareness Camp</p>
-            </td>
+            </label>
 
-            <td>
-                <img src="images/tech-workshop.png"
-                     alt="Technology Workshop"
-                     title="Technology Workshop"
-                     class="event-image">
+            <input type="text"
+                   id="searchBox"
+                   placeholder="Type event name..."
+                   onkeydown="searchEvent()">
 
-                <p>Technology Workshop</p>
-            </td>
+            <div id="searchOutput"></div>
 
-        </tr>
+        </section>
 
-        <tr>
+        <!-- Events Section -->
 
-            <td>
-                <img src="images/tree-plantation.png"
-                     alt="Tree Plantation Drive"
-                     title="Tree Plantation Drive"
-                     class="event-image">
+        <section id="events"
+                 class="eventCard">
 
-                <p>Tree Plantation Drive</p>
-            </td>
+            <h2 class="highlight">
 
-            <td>
-                <img src="images/sports-meet.png"
-                     alt="Community Sports Meet"
-                     title="Community Sports Meet"
-                     class="event-image">
+                Upcoming Events
 
-                <p>Community Sports Meet</p>
-            </td>
+            </h2>
 
-            <td>
-                <img src="images/cultural-fest.png"
-                     alt="Cultural Festival"
-                     title="Cultural Festival"
-                     class="event-image">
+            <ul>
 
-                <p>Cultural Festival</p>
-            </td>
+                <li>
+                    Community Clean-Up Drive
+                </li>
 
-        </tr>
+                <li class="highlight">
+                    Health Awareness Camp
+                </li>
 
-    </table>
+                <li>
+                    Technology Workshop
+                </li>
 
-</section>
-<!-- Registration Section -->
+                <li>
+                    Tree Plantation Drive
+                </li>
 
-<section id="registration" class="eventCard">
+                <li>
+                    Community Sports Meet
+                </li>
 
-    <h2 class="highlight">Event Registration</h2>
+            </ul>
 
-    <form class="registration-form"
-          onsubmit="showConfirmation(event)">
+        </section>
 
-        <label for="name">Full Name</label>
+        <!-- Gallery Section -->
 
-        <input type="text"
-               id="name"
-               name="name"
-               placeholder="Enter your full name"
-               required
-               autofocus>
+        <section id="gallery"
+                 class="eventCard">
 
-        <label for="email">Email Address</label>
+            <h2 class="highlight">
 
-        <input type="email"
-               id="email"
-               name="email"
-               placeholder="Enter your email"
-               required>
+                Past Community Events
 
-        <label for="eventDate">Event Date</label>
+            </h2>
 
-        <input type="date"
-               id="eventDate"
-               required>
+            <table>
 
-        <label for="eventType">Event Type</label>
+                <tr>
 
-        <select id="eventType"
-        required
-        onchange="savePreference()">
+                    <th>Event 1</th>
 
-    <option value="">
-        Select Event
-    </option>
+                    <th>Event 2</th>
 
-    <option value="Community Clean-Up Drive">
-        Community Clean-Up Drive
-    </option>
+                    <th>Event 3</th>
 
-    <option value="Health Awareness Camp">
-        Health Awareness Camp
-    </option>
+                </tr>
 
-    <option value="Technology Workshop">
-        Technology Workshop
-    </option>
+                <tr>
 
-    <option value="Sports Meet">
-        Sports Meet
-    </option>
+                    <td>
 
-</select>
-<button type="button"
-        onclick="savePreference()">
-    Save Preference
-</button>
+                        <img src="images/cleanup-drive.png"
+                             alt="Community Clean-Up Drive"
+                             title="Community Clean-Up Drive"
+                             class="event-image">
 
-<button type="button"
-        onclick="clearPreferences()">
-    Clear Preferences
-</button>
-<p id="preferenceMessage"></p>
+                        <p>
+                            Community Clean-Up Drive
+                        </p>
 
-        <label for="message">Message</label>
+                    </td>
 
-        <textarea id="message"
-                  rows="4"
-                  placeholder="Enter your message"></textarea>
+                    <td>
 
-        <button type="submit">
-            Register
-        </button>
+                        <img src="images/health-camp.png"
+                             alt="Health Awareness Camp"
+                             title="Health Awareness Camp"
+                             class="event-image">
 
-        <output id="confirmationMessage"></output>
+                        <p>
+                            Health Awareness Camp
+                        </p>
 
-    </form>
+                    </td>
 
-</section>
-<!-- Feedback Section -->
+                    <td>
 
-<section id="feedback" class="eventCard">
-    <h2 class="highlight">
-        Event Feedback
-    </h2>
+                        <img src="images/tech-workshop.png"
+                             alt="Technology Workshop"
+                             title="Technology Workshop"
+                             class="event-image">
 
-    <form class="feedback-form">
+                        <p>
+                            Technology Workshop
+                        </p>
 
-        <label>
-            Phone Number
-        </label>
+                    </td>
 
-        <input type="text"
-               id="phone"
-               placeholder="Enter 10 digit phone number"
-               onblur="validatePhone()">
+                </tr>
+                <tr>
 
-        <p id="phoneMessage"></p>
+                    <td>
 
-        <label>
-            Select Event
-        </label>
+                        <img src="images/tree-plantation.png"
+                             alt="Tree Plantation Drive"
+                             title="Tree Plantation Drive"
+                             class="event-image">
 
-        <select id="eventSelect"
-                onchange="showFee()">
+                        <p>
+                            Tree Plantation Drive
+                        </p>
 
-            <option value="">
-                Select Event
-            </option>
+                    </td>
 
-            <option value="100">
-                Community Clean-Up Drive
-            </option>
+                    <td>
 
-            <option value="200">
-                Health Awareness Camp
-            </option>
+                        <img src="images/sports-meet.png"
+                             alt="Community Sports Meet"
+                             title="Community Sports Meet"
+                             class="event-image">
 
-            <option value="300">
-                Technology Workshop
-            </option>
+                        <p>
+                            Community Sports Meet
+                        </p>
 
-            <option value="400">
-                Sports Meet
-            </option>
+                    </td>
 
-        </select>
+                    <td>
 
-        <p id="feeDisplay"></p>
+                        <img src="images/cultural-fest.png"
+                             alt="Cultural Festival"
+                             title="Cultural Festival"
+                             class="event-image">
 
-        <label>
-            Feedback Message
-        </label>
+                        <p>
+                            Cultural Festival
+                        </p>
 
-        <textarea id="feedbackText"
-                  rows="5"
-                  onkeyup="countCharacters()"
-                  placeholder="Enter your feedback"></textarea>
+                    </td>
 
-        <p id="charCount">
-            Characters: 0
-        </p>
+                </tr>
 
-        <button type="button"
-                onclick="submitFeedback()">
-            Submit Feedback
-        </button>
+            </table>
 
-        <p id="confirmation"></p>
+        </section>
 
-    </form>
+        <!-- Registration Section -->
 
-    <br>
+        <section id="registration"
+                 class="eventCard">
 
-    <h3>
-        Double Click Image to Enlarge
-    </h3>
+            <h2 class="highlight">
 
-    <img src="images/tech-workshop.png"
-         id="eventImage"
-         ondblclick="enlargeImage()"
-         alt="Technology Workshop">
+                Event Registration
 
-</section>
-<!-- Video Invite Section -->
+            </h2>
 
-<section id="videoInvite" class="video-section">
+            <form class="registration-form"
+                  onsubmit="showConfirmation(event)">
 
-    <h2 class="highlight">
-        Event Promo Video
-    </h2>
+                <label>
+                    Full Name
+                </label>
 
-    <video id="promoVideo"
-           controls
-           oncanplay="videoReady()">
+                <input type="text"
+                       id="name"
+                       placeholder="Enter your full name"
+                       required
+                       autofocus>
 
-        <source src="videos/event-promo.mp4"
-                type="video/mp4">
+                <label>
+                    Email Address
+                </label>
 
-        Your browser does not support video playback.
+                <input type="email"
+                       id="email"
+                       placeholder="Enter your email"
+                       required>
 
-    </video>
+                <label>
+                    Event Date
+                </label>
 
-    <p id="videoStatus"></p>
+                <input type="date"
+                       id="eventDate"
+                       required>
 
-</section>
-<!-- Geolocation Section -->
+                <label>
+                    Event Type
+                </label>
 
-<section id="location"
-         class="location-section">
+                <select id="eventType"
+                        onchange="savePreference()"
+                        required>
 
-    <h2 class="highlight">
-        Find Nearby Events
-    </h2>
+                    <option value="">
+                        Select Event
+                    </option>
 
-    <p>
-        Click the button to find your location.
-    </p>
+                    <option value="Community Clean-Up Drive">
+                        Community Clean-Up Drive
+                    </option>
 
-    <button onclick="findLocation()">
-        Find Nearby Events
-    </button>
+                    <option value="Health Awareness Camp">
+                        Health Awareness Camp
+                    </option>
 
-    <p id="locationResult"></p>
+                    <option value="Technology Workshop">
+                        Technology Workshop
+                    </option>
 
-</section>
-<!-- Box Model Demonstration -->
+                    <option value="Sports Meet">
+                        Sports Meet
+                    </option>
 
-<section class="eventCard">
+                </select>
 
-    <h2>Box Model Demonstration</h2>
+                <button type="button"
+                        onclick="savePreference()">
 
-    <p>
-        This section demonstrates margin, padding,
-        border and outline properties.
-    </p>
+                    Save Preference
 
-    <div class="hiddenBox">
-        This box uses visibility:hidden
-    </div>
+                </button>
 
-    <div class="noneBox">
-        This box uses display:none
-    </div>
+                <button type="button"
+                        onclick="clearPreferences()">
 
-</section>
-<!-- Community Bulletin Section -->
+                    Clear Preferences
 
-<section class="eventCard">
+                </button>
 
-    <h2>Community Bulletin</h2>
+                <p id="preferenceMessage"></p>
 
-    <div class="newsArticle">
+                <label>
+                    Message
+                </label>
 
-        The Local Community Event Portal continues to support residents by providing information about upcoming workshops, awareness campaigns, health camps, environmental initiatives, and cultural activities. Citizens are encouraged to actively participate in community development programs and volunteer opportunities.
+                <textarea id="message"
+                          rows="4"
+                          placeholder="Enter your message"></textarea>
 
-        The city council has recently launched several initiatives aimed at improving public spaces, increasing environmental awareness, and promoting healthy lifestyles. Community members can register online, receive notifications about nearby events, and stay informed about local developments.
+                <button type="submit">
 
-        Through regular engagement activities, educational workshops, and cultural programs, the portal helps strengthen connections among residents while encouraging collaboration and civic responsibility. The platform serves as a central hub for communication, participation, and community growth.
+                    Register
 
-        Residents are advised to regularly check the portal for updates regarding event schedules, venue information, registration deadlines, and volunteer opportunities. Together, the community can create a cleaner, healthier, and more connected environment for everyone.
+                </button>
 
-    </div>
+                <output id="confirmationMessage"></output>
 
-</section>
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact</h2>
+            </form>
 
-        <p>Email: support@communityportal.com</p>
-        <p>Phone: +91 9876543210</p>
-    </section>
+        </section>
 
-    <!-- Footer Section -->
+        <!-- Feedback Section -->
+
+        <section id="feedback"
+                 class="eventCard">
+
+            <h2 class="highlight">
+
+                Event Feedback
+
+            </h2>
+
+            <form>
+
+                <label>
+
+                    Phone Number
+
+                </label>
+
+                <input type="text"
+                       id="phone"
+                       placeholder="Enter 10 digit phone number"
+                       onblur="validatePhone()">
+
+                <p id="phoneMessage"></p>
+
+                <label>
+
+                    Select Event
+
+                </label>
+
+                <select id="eventSelect"
+                        onchange="showFee()">
+
+                    <option value="">
+                        Select Event
+                    </option>
+
+                    <option value="100">
+                        Community Clean-Up Drive
+                    </option>
+
+                    <option value="200">
+                        Health Awareness Camp
+                    </option>
+
+                    <option value="300">
+                        Technology Workshop
+                    </option>
+
+                    <option value="400">
+                        Sports Meet
+                    </option>
+
+                </select>
+
+                <p id="feeDisplay"></p>
+
+                <label>
+
+                    Feedback Message
+
+                </label>
+
+                <textarea id="feedbackText"
+                          rows="5"
+                          onkeyup="countCharacters()"
+                          placeholder="Enter feedback"></textarea>
+
+                <p id="charCount">
+
+                    Characters: 0
+
+                </p>
+
+                <button type="button"
+                        onclick="submitFeedback()">
+
+                    Submit Feedback
+
+                </button>
+
+                <p id="confirmation"></p>
+
+            </form>
+
+            <h3>
+
+                Double Click Image to Enlarge
+
+            </h3>
+
+            <img src="images/tech-workshop.png"
+                 id="eventImage"
+                 ondblclick="enlargeImage()"
+                 alt="Technology Workshop">
+
+        </section>
+
+        <!-- Video Section -->
+
+        <section id="videoInvite"
+                 class="eventCard">
+
+            <h2>
+
+                Event Promo Video
+
+            </h2>
+
+            <video controls
+                   id="promoVideo"
+                   oncanplay="videoReady()">
+
+                <source src="videos/event-promo.mp4"
+                        type="video/mp4">
+
+            </video>
+
+            <p id="videoStatus"></p>
+
+        </section>
+
+        <!-- Geolocation -->
+
+        <section id="location"
+                 class="eventCard">
+
+            <h2>
+
+                Find Nearby Events
+
+            </h2>
+
+            <button onclick="findLocation()">
+
+                Find Nearby Events
+
+            </button>
+
+            <p id="locationResult"></p>
+
+        </section>
+
+        <!-- Community Bulletin -->
+
+        <section class="eventCard">
+
+            <h2>
+
+                Community Bulletin
+
+            </h2>
+
+            <div class="newsArticle">
+
+                The Local Community Event Portal supports residents through
+                workshops, awareness programs, environmental initiatives,
+                health camps, sports activities, and cultural celebrations.
+
+                Community members are encouraged to participate in volunteer
+                activities, social development programs, and educational
+                workshops that strengthen local engagement.
+
+                The city council regularly organizes events to improve public
+                spaces, increase environmental awareness, and promote healthy
+                lifestyles for all citizens.
+
+                Residents can register online, receive event notifications,
+                and access updated schedules through the portal.
+
+            </div>
+
+        </section>
+
+        <!-- Async JS -->
+
+        <section class="eventCard">
+
+            <h2>
+
+                Async JavaScript Demo
+
+            </h2>
+
+            <button onclick="fetchEventsUsingThen()">
+
+                Fetch Events (.then)
+
+            </button>
+
+            <button onclick="fetchEventsAsync()">
+
+                Fetch Events (Async/Await)
+
+            </button>
+
+            <div id="loadingSpinner"></div>
+
+            <div id="asyncOutput"></div>
+
+        </section>
+
+        <!-- Modern JS -->
+
+        <section class="eventCard">
+
+            <h2>
+
+                Modern JavaScript Features
+
+            </h2>
+
+            <button onclick="showModernFeatures()">
+
+                Show Modern JS Features
+
+            </button>
+
+            <div id="modernOutput"></div>
+
+        </section>
+
+        <!-- Form Validation -->
+
+        <section class="eventCard">
+
+            <h2>
+
+                Form Validation Demo
+
+            </h2>
+
+            <form id="registrationForm">
+
+                <input type="text"
+                       name="userName"
+                       placeholder="Enter Name">
+
+                <span id="nameError"></span>
+
+                <br><br>
+
+                <input type="email"
+                       name="userEmail"
+                       placeholder="Enter Email">
+
+                <span id="emailError"></span>
+
+                <br><br>
+
+                <select name="eventName">
+
+                    <option value="">
+                        Choose Event
+                    </option>
+
+                    <option value="Technology Workshop">
+                        Technology Workshop
+                    </option>
+
+                    <option value="Health Camp">
+                        Health Camp
+                    </option>
+
+                </select>
+
+                <span id="eventError"></span>
+
+                <br><br>
+
+                <button type="submit">
+
+                    Register
+
+                </button>
+
+            </form>
+
+            <div id="formOutput"></div>
+
+        </section>
+
+        <!-- AJAX -->
+
+        <section class="eventCard">
+
+            <h2>
+
+                AJAX & Fetch API Demo
+
+            </h2>
+
+            <button onclick="submitRegistration()">
+
+                Send Registration
+
+            </button>
+
+            <div id="ajaxStatus"></div>
+
+        </section>
+
+        <!-- jQuery -->
+
+        <section class="eventCard">
+
+            <h2>
+
+                jQuery Demo
+
+            </h2>
+
+            <button id="registerBtn">
+
+                Register Using jQuery
+
+            </button>
+
+            <button id="showCardBtn">
+
+                Show Event Card
+
+            </button>
+
+            <button id="hideCardBtn">
+
+                Hide Event Card
+
+            </button>
+
+            <div id="jqueryCard"
+                 class="eventCard"
+                 style="display:none;">
+
+                <h4>
+
+                    Technology Workshop
+
+                </h4>
+
+                <p>
+
+                    Learn modern web development using JavaScript.
+
+                </p>
+
+            </div>
+
+            <div id="frameworkBenefit"></div>
+
+        </section>
+
+        <!-- Contact -->
+
+        <section id="contact"
+                 class="eventCard">
+
+            <h2>
+
+                Contact
+
+            </h2>
+
+            <p>
+
+                Email: support@communityportal.com
+
+            </p>
+
+            <p>
+
+                Phone: +91 9876543210
+
+            </p>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+
     <footer>
-        <p>&copy; Local Community Event Portal</p>
+
+        <p>
+
+            &copy; 2026 Local Community Event Portal
+
+        </p>
+
     </footer>
 
-<script src="main.js"></script>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- jQuery First -->
 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Main JavaScript -->
+
+    <script src="main.js"></script>
 
 </body>
 

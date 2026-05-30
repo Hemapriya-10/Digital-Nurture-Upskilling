@@ -1,10 +1,40 @@
 /* =====================================
+   GOOGLE FONT
+   ===================================== */
+
+body {
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+    background-color: #dfe9f3;
+
+    background-image: url("images/tree-plantation.png");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-attachment: fixed;
+
+    color: #333;
+
+    min-height: 100vh;
+}
+
+/* =====================================
    UNIVERSAL SELECTOR
    ===================================== */
 
 * {
+
     margin: 0;
+
     padding: 0;
+
     box-sizing: border-box;
 }
 
@@ -18,12 +48,15 @@ h1 {
 
     font-weight: 700;
 
-    letter-spacing: 2px;
-
     text-transform: uppercase;
 
+    letter-spacing: 2px;
+
     text-align: center;
+
+    margin-bottom: 15px;
 }
+
 /* =====================================
    SECTION HEADER STYLES
    ===================================== */
@@ -54,14 +87,30 @@ h2 {
 }
 
 /* =====================================
-   MAIN HEADER STYLES
+   GROUPING SELECTOR
+   ===================================== */
+
+h3,
+p {
+
+    color: #333;
+
+    line-height: 1.8;
+
+    text-align: justify;
+
+    letter-spacing: 0.5px;
+}
+
+/* =====================================
+   MAIN HEADER
    ===================================== */
 
 #mainHeader {
 
     background-color: rgba(0, 0, 128, 0.85);
 
-    color: #FFFFFF;
+    color: white;
 
     text-align: center;
 
@@ -69,15 +118,37 @@ h2 {
 }
 
 /* =====================================
-   EVENT CARD STYLES
+   WELCOME BANNER
    ===================================== */
 
-/* =====================================
-   EVENT CARD TYPOGRAPHY
-   ===================================== */
+#welcomeBanner {
+
+    background-color: blue;
+
+    color: white;
+
+    padding: 15px;
+
+    border-radius: 8px;
+
+    margin-bottom: 20px;
+}
 
 /* =====================================
-   BOX MODEL DEMONSTRATION
+   HIGHLIGHT CLASS
+   ===================================== */
+
+.highlight {
+
+    background-color: yellow;
+
+    font-weight: bold;
+
+    padding: 3px;
+}
+
+/* =====================================
+   EVENT CARD
    ===================================== */
 
 .eventCard {
@@ -88,191 +159,28 @@ h2 {
 
     padding: 25px;
 
-    margin: 30px;
+    margin: 20px auto;
+
+    width: 90%;
 
     border-radius: 10px;
 
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
-h3,
-p {
 
-    color: #333333;
-
-    line-height: 1.8;
-
-    text-align: justify;
-
-    font-size: 16px;
-
-    font-style: normal;
-
-    font-weight: 400;
-
-    letter-spacing: 0.5px;
-}
-/* =====================================
-   HEADER STYLES
-   ===================================== */
-
-#welcomeBanner {
-    background-color: blue;
-    color: white;
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-}
-
-
-/* =====================================
-   HIGHLIGHT STYLES
-   ===================================== */
-
-.highlight {
-    background-color: yellow;
-    font-weight: bold;
-    padding: 3px;
-}
-
-
-/* =====================================
-   RESPONSIVE IMAGES
-   ===================================== */
-
-.event-image {
-
-    width: 18vw;
-
-    height: auto;
-
-    max-width: 250px;
-
-    border: 3px solid #333;
-
-    border-radius: 8px;
-}
 /* =====================================
    FLEXIBLE LAYOUTS
    ===================================== */
 
-body {
+main {
 
-    min-height: 100vh;
-}
+    width: 95%;
 
-.eventCard {
-
-    width: 90%;
-
-    margin: 20px auto;
-}
-
-.registration-form,
-.feedback-form {
-
-    width: 80%;
+    margin: auto;
 }
 
 /* =====================================
-   REGISTRATION FORM STYLES
-   ===================================== */
-
-.registration-form {
-    width: 500px;
-    margin: 30px auto;
-    padding: 20px;
-    border: 2px solid #333;
-    border-radius: 10px;
-    background-color: #f4f4f4;
-}
-
-.registration-form label {
-    display: block;
-    margin-top: 10px;
-    font-weight: bold;
-}
-
-.registration-form input,
-.registration-form select,
-.registration-form textarea {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #888;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-
-/* =====================================
-   BUTTON STYLES
-   ===================================== */
-
-.registration-form button {
-    margin-top: 15px;
-    padding: 10px 15px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.registration-form button:hover {
-    background-color: #0056b3;
-}
-
-
-/* =====================================
-   CONFIRMATION MESSAGE STYLES
-   ===================================== */
-
-#confirmationMessage {
-    display: block;
-    margin-top: 15px;
-    color: green;
-    font-weight: bold;
-}
-
-
-/* =====================================
-   CTA BUTTON EXAMPLE
-   ===================================== */
-
-.cta-button {
-    background-color: #007BFF;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 5px;
-    border: none;
-}
-/* =====================================
-   LINK STYLING
-   ===================================== */
-
-/* Unvisited Link */
-a:link {
-    color: #003366;
-    text-decoration: none;
-}
-
-/* Visited Link */
-a:visited {
-    color: #660066;
-}
-
-/* Mouse Hover */
-a:hover {
-    color: #ff6600;
-    text-decoration: underline;
-}
-
-/* Active Link */
-a:active {
-    color: red;
-}
-/* =====================================
-   RESPONSIVE NAVIGATION
+   NAVIGATION
    ===================================== */
 
 nav {
@@ -299,31 +207,214 @@ nav a {
     background-color: rgba(255,255,255,0.2);
 
     border-radius: 5px;
+
+    color: white;
+
+    font-weight: bold;
+}
+
+/* =====================================
+   LINK STYLING
+   ===================================== */
+
+a:link {
+
+    color: #003366;
+
+    text-decoration: none;
+}
+
+a:visited {
+
+    color: #660066;
+}
+
+a:hover {
+
+    color: #ff6600;
+
+    text-decoration: underline;
+}
+
+a:active {
+
+    color: red;
+}
+
+/* =====================================
+   CTA BUTTON
+   ===================================== */
+
+.cta-button {
+
+    background-color: #007BFF;
+
+    color: white;
+
+    border: none;
+
+    padding: 10px 15px;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    margin-top: 10px;
+}
+
+.cta-button:hover {
+
+    background-color: #0056b3;
+}
+
+/* =====================================
+   EVENT IMAGES
+   ===================================== */
+
+.event-image {
+
+    width: 18vw;
+
+    max-width: 250px;
+
+    height: auto;
+
+    border: 3px solid #333;
+
+    border-radius: 8px;
+}
+
+/* =====================================
+   REGISTRATION FORM
+   ===================================== */
+
+.registration-form {
+
+    width: 500px;
+
+    margin: 30px auto;
+
+    padding: 20px;
+
+    border: 2px solid #333;
+
+    border-radius: 10px;
+
+    background-color: #f4f4f4;
+}
+
+.registration-form label {
+
+    display: block;
+
+    margin-top: 10px;
+
+    font-weight: bold;
+}
+
+.registration-form input,
+.registration-form select,
+.registration-form textarea {
+
+    width: 100%;
+
+    padding: 8px;
+
+    margin-top: 5px;
+
+    border: 1px solid #888;
+
+    border-radius: 5px;
+}
+
+/* =====================================
+   FORM BUTTONS
+   ===================================== */
+
+.registration-form button {
+
+    margin-top: 15px;
+
+    padding: 10px 15px;
+
+    background-color: #007BFF;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+.registration-form button:hover {
+
+    background-color: #0056b3;
+}
+
+/* =====================================
+   CONFIRMATION MESSAGE
+   ===================================== */
+
+#confirmationMessage {
+
+    display: block;
+
+    margin-top: 15px;
+
+    color: green;
+
+    font-weight: bold;
+}
+
+/* =====================================
+   INPUT OUTLINE DEMO
+   ===================================== */
+
+input:focus,
+textarea:focus,
+select:focus {
+
+    outline: 3px solid orange;
+
+    border-color: blue;
 }
 /* =====================================
    LIST STYLING
    ===================================== */
 
 ul {
+
     list-style-type: square;
+
     list-style-position: inside;
+
     margin: 15px;
+
     padding: 10px;
 }
 
 li {
+
     padding: 8px;
+
     margin: 5px 0;
 }
+
 /* =====================================
-   NAVIGATION LIST STYLE
+   REMOVE BULLETS FROM NAVIGATION
    ===================================== */
 
 nav ul {
+
     list-style-type: none;
-    padding: 0;
+
     margin: 0;
+
+    padding: 0;
 }
+
 /* =====================================
    TABLE STYLING
    ===================================== */
@@ -341,9 +432,8 @@ table {
     background-color: white;
 }
 
-
 /* =====================================
-   TABLE HEADER STYLING
+   TABLE HEADER
    ===================================== */
 
 th {
@@ -359,9 +449,8 @@ th {
     font-weight: bold;
 }
 
-
 /* =====================================
-   TABLE DATA STYLING
+   TABLE DATA
    ===================================== */
 
 td {
@@ -373,7 +462,6 @@ td {
     background-color: #f8f9fa;
 }
 
-
 /* =====================================
    ZEBRA STRIPING
    ===================================== */
@@ -383,7 +471,6 @@ tr:nth-child(even) {
     background-color: #d6eaf8;
 }
 
-
 /* =====================================
    TABLE HOVER EFFECT
    ===================================== */
@@ -392,20 +479,88 @@ tr:hover {
 
     background-color: #aed6f1;
 }
+
 /* =====================================
-   FORM OUTLINE DEMONSTRATION
+   FEEDBACK FORM
    ===================================== */
 
-input:focus,
-textarea:focus,
-select:focus {
+.feedback-form {
 
-    outline: 3px solid orange;
+    width: 80%;
 
-    border-color: blue;
+    margin: auto;
 }
+
+.feedback-form input,
+.feedback-form select,
+.feedback-form textarea {
+
+    width: 100%;
+
+    padding: 10px;
+
+    margin-top: 5px;
+
+    margin-bottom: 10px;
+
+    border: 1px solid #888;
+
+    border-radius: 5px;
+}
+
+.feedback-form button {
+
+    padding: 10px 15px;
+
+    background-color: #28a745;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+.feedback-form button:hover {
+
+    background-color: #218838;
+}
+
 /* =====================================
-   VISIBILITY DEMONSTRATION
+   VIDEO SECTION
+   ===================================== */
+
+.video-section,
+#videoInvite {
+
+    text-align: center;
+}
+
+video {
+
+    width: 80%;
+
+    max-width: 700px;
+
+    border-radius: 10px;
+
+    border: 3px solid #333;
+}
+
+/* =====================================
+   GEOLOCATION SECTION
+   ===================================== */
+
+.location-section,
+#location {
+
+    text-align: center;
+}
+
+/* =====================================
+   BOX MODEL DEMONSTRATION
    ===================================== */
 
 .hiddenBox {
@@ -429,6 +584,7 @@ select:focus {
 
     margin: 10px;
 }
+
 /* =====================================
    MULTI COLUMN NEWS ARTICLE
    ===================================== */
@@ -453,14 +609,90 @@ select:focus {
 
     line-height: 1.8;
 }
+
 /* =====================================
-   MEDIA QUERY
-   FOR MOBILE DEVICES
+   FORM VALIDATION ERRORS
+   ===================================== */
+
+#nameError,
+#emailError,
+#eventError {
+
+    color: red;
+
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+/* =====================================
+   AJAX STATUS
+   ===================================== */
+
+#ajaxStatus {
+
+    margin-top: 15px;
+
+    font-weight: bold;
+}
+
+/* =====================================
+   LOADING SPINNER
+   ===================================== */
+
+#loadingSpinner {
+
+    margin-top: 15px;
+
+    color: #007BFF;
+
+    font-weight: bold;
+}
+
+/* =====================================
+   DOM EVENT CARDS
+   ===================================== */
+
+#domEventContainer .eventCard {
+
+    margin-top: 10px;
+
+    padding: 15px;
+}
+
+/* =====================================
+   jQUERY CARD
+   ===================================== */
+
+#jqueryCard {
+
+    margin-top: 20px;
+}
+
+/* =====================================
+   FOOTER
+   ===================================== */
+
+footer {
+
+    background-color: rgba(0,0,128,0.9);
+
+    color: white;
+
+    text-align: center;
+
+    padding: 20px;
+
+    margin-top: 30px;
+}
+
+/* =====================================
+   RESPONSIVE DESIGN
    ===================================== */
 
 @media screen and (max-width: 768px) {
 
-    /* Navigation Links Vertical */
+    /* Navigation Vertical */
 
     nav {
 
@@ -476,7 +708,7 @@ select:focus {
         text-align: center;
     }
 
-    /* Smaller Headings */
+    /* Responsive Headings */
 
     h1 {
 
@@ -488,12 +720,17 @@ select:focus {
         font-size: 5vw;
     }
 
+    h3 {
+
+        font-size: 4vw;
+    }
+
     p {
 
         font-size: 3.5vw;
     }
 
-    /* Smaller Images */
+    /* Responsive Images */
 
     .event-image {
 
@@ -502,7 +739,7 @@ select:focus {
         max-width: 200px;
     }
 
-    /* Forms Full Width */
+    /* Responsive Forms */
 
     .registration-form,
     .feedback-form {
@@ -510,17 +747,31 @@ select:focus {
         width: 95%;
     }
 
-    /* Tables Responsive */
+    /* Responsive Tables */
 
     table {
 
         font-size: 12px;
     }
 
-    /* Multi-column becomes single column */
+    /* Single Column Layout */
 
     .newsArticle {
 
         column-count: 1;
+    }
+
+    /* Responsive Video */
+
+    video {
+
+        width: 100%;
+    }
+
+    /* Responsive Event Cards */
+
+    .eventCard {
+
+        width: 95%;
     }
 }
