@@ -13,35 +13,57 @@
    ELEMENT SELECTOR
    ===================================== */
 
+/* =====================================
+   SECTION HEADER STYLES
+   ===================================== */
+
 h2 {
-    color: darkblue;
-    background-color: lightblue;
-    padding: 10px;
+
+    color: #FFFFFF;
+
+    background: linear-gradient(
+        to right,
+        #005AA7,
+        #00C6FF
+    );
+
+    padding: 12px;
+
+    border-radius: 5px;
+
     margin-bottom: 15px;
 }
 
 
 /* =====================================
-   ID SELECTOR
+   MAIN HEADER STYLES
    ===================================== */
 
 #mainHeader {
-    background-color: navy;
-    color: white;
+
+    background-color: rgba(0, 0, 128, 0.85);
+
+    color: #FFFFFF;
+
     text-align: center;
+
     padding: 20px;
 }
 
-
 /* =====================================
-   CLASS SELECTOR
+   EVENT CARD STYLES
    ===================================== */
 
 .eventCard {
-    background-color: white;
-    border: 2px solid #444;
+
+    background-color: rgba(255, 255, 255, 0.95);
+
+    border: 2px solid #444444;
+
     padding: 20px;
+
     margin: 20px;
+
     border-radius: 10px;
 }
 
