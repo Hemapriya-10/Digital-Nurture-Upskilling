@@ -304,3 +304,206 @@ function showWorkshopEvents() {
 
     );
 }
+// =====================================
+// Objects and Prototypes
+// =====================================
+
+// Event Class
+
+class Event {
+
+    constructor(name, date, seats) {
+
+        this.name = name;
+
+        this.date = date;
+
+        this.seats = seats;
+    }
+}
+
+
+// Prototype Method
+
+Event.prototype.checkAvailability =
+function() {
+
+    if(this.seats > 0) {
+
+        return "Seats Available";
+    }
+
+    return "Event Full";
+};
+
+
+// Create Event Object
+
+const techEvent = new Event(
+
+    "Technology Workshop",
+
+    "2026-06-15",
+
+    50
+
+);
+
+
+// Display Event Details
+
+function showEventDetails() {
+
+    let output =
+
+        `<h4>Event Information</h4>`;
+
+    // Object.entries()
+
+    Object.entries(techEvent)
+
+    .forEach(([key, value]) => {
+
+        output +=
+
+        `<p>
+
+            <strong>${key}</strong> :
+
+            ${value}
+
+         </p>`;
+    });
+
+    output +=
+
+        `<p>
+
+            <strong>Status:</strong>
+
+            ${techEvent.checkAvailability()}
+
+         </p>`;
+
+    document.getElementById(
+        "objectOutput"
+    ).innerHTML = output;
+
+    console.log(
+        Object.entries(techEvent)
+    );
+}
+// =====================================
+// Arrays and Methods
+// =====================================
+
+// Event Array
+
+let eventArray = [
+
+    {
+        name: "Music Concert",
+        category: "Music"
+    },
+
+    {
+        name: "Technology Workshop",
+        category: "Workshop"
+    },
+
+    {
+        name: "Music Festival",
+        category: "Music"
+    }
+
+];
+
+
+// .push() Example
+
+function addCommunityEvent() {
+
+    eventArray.push({
+
+        name: "Sports Meet",
+
+        category: "Sports"
+
+    });
+
+    document.getElementById(
+        "arrayOutput"
+    ).innerHTML =
+
+    "<p>Sports Meet Added Successfully!</p>";
+
+    console.log(eventArray);
+}
+
+
+// .filter() Example
+
+function showMusicEvents() {
+
+    let musicEvents =
+
+        eventArray.filter(
+
+            event =>
+
+            event.category === "Music"
+
+        );
+
+    let output =
+
+        "<h4>Music Events</h4>";
+
+    musicEvents.forEach(event => {
+
+        output +=
+
+        `<p>${event.name}</p>`;
+
+    });
+
+    document.getElementById(
+        "arrayOutput"
+    ).innerHTML = output;
+}
+
+
+// .map() Example
+
+function showFormattedEvents() {
+
+    let formattedEvents =
+
+        eventArray.map(
+
+            event =>
+
+            `Workshop on ${event.name}`
+
+        );
+
+    let output =
+
+        "<h4>Formatted Event Cards</h4>";
+
+    formattedEvents.forEach(event => {
+
+        output +=
+
+        `<div class="eventCard">
+
+            ${event}
+
+         </div>`;
+
+    });
+
+    document.getElementById(
+        "arrayOutput"
+    ).innerHTML = output;
+}
