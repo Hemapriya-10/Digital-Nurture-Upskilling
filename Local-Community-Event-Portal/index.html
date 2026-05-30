@@ -5,156 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Local Community Event Portal</title>
+
+    <!-- Internal CSS -->
     <style>
+        body {
+            background-color: lightgray;
+        }
+    </style>
 
-    #welcomeBanner {
-        background-color: blue;
-        color: white;
-        padding: 15px;
-        border-radius: 5px;
-        margin-bottom: 20px;
-    }
-
-    .highlight {
-        background-color: yellow;
-        font-weight: bold;
-        padding: 3px;
-    }
-    .event-image {
-    width: 250px;
-    height: 170px;
-    border: 3px solid #333;
-    border-radius: 8px;
-}
-    .registration-form {
-    width: 500px;
-    margin: 30px auto;
-    padding: 20px;
-    border: 2px solid #333;
-    border-radius: 10px;
-    background-color: #f4f4f4;
-}
-
-.registration-form label {
-    display: block;
-    margin-top: 10px;
-    font-weight: bold;
-}
-
-.registration-form input,
-.registration-form select,
-.registration-form textarea {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #888;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-.registration-form button {
-    margin-top: 15px;
-    padding: 10px 15px;
-    background-color: blue;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.registration-form button:hover {
-    background-color: darkblue;
-}
-
-#confirmationMessage {
-    display: block;
-    margin-top: 15px;
-    color: green;
-    font-weight: bold;
-}
-.feedback-form {
-    width: 600px;
-    margin: 30px auto;
-    padding: 20px;
-    background-color: #f5f5f5;
-    border-radius: 10px;
-    border: 2px solid #444;
-}
-
-.feedback-form label {
-    display: block;
-    margin-top: 10px;
-    font-weight: bold;
-}
-
-.feedback-form input,
-.feedback-form select,
-.feedback-form textarea {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-}
-
-#eventImage {
-    width: 250px;
-    border: 3px solid black;
-    cursor: pointer;
-}
-
-#feeDisplay {
-    color: green;
-    font-weight: bold;
-}
-
-#charCount {
-    color: blue;
-    font-weight: bold;
-}
-.video-section {
-    width: 700px;
-    margin: 30px auto;
-    text-align: center;
-}
-
-video {
-    width: 100%;
-    border: 3px solid black;
-    border-radius: 10px;
-}
-
-#videoStatus {
-    color: green;
-    font-weight: bold;
-    margin-top: 10px;
-}
-.location-section {
-    width: 700px;
-    margin: 30px auto;
-    text-align: center;
-    padding: 20px;
-    border: 2px solid #444;
-    border-radius: 10px;
-    background-color: #f5f5f5;
-}
-
-.location-section button {
-    padding: 10px 20px;
-    background-color: green;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.location-section button:hover {
-    background-color: darkgreen;
-}
-
-#locationResult {
-    margin-top: 15px;
-    font-weight: bold;
-}
-</style>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -182,7 +42,9 @@ video {
     </p>
 
 </div>
-        <h1>Local Community Event Portal</h1>
+        <h1 style="color:red;">
+    Local Community Event Portal
+</h1>
 
         <nav>
             <a href="#home">Home</a> |
