@@ -136,16 +136,42 @@ p {
 
 
 /* =====================================
-   EVENT IMAGE STYLES
+   RESPONSIVE IMAGES
    ===================================== */
 
 .event-image {
-    width: 250px;
-    height: 170px;
+
+    width: 18vw;
+
+    height: auto;
+
+    max-width: 250px;
+
     border: 3px solid #333;
+
     border-radius: 8px;
 }
+/* =====================================
+   FLEXIBLE LAYOUTS
+   ===================================== */
 
+body {
+
+    min-height: 100vh;
+}
+
+.eventCard {
+
+    width: 90%;
+
+    margin: 20px auto;
+}
+
+.registration-form,
+.feedback-form {
+
+    width: 80%;
+}
 
 /* =====================================
    REGISTRATION FORM STYLES
@@ -246,19 +272,33 @@ a:active {
     color: red;
 }
 /* =====================================
-   NAVIGATION MENU
+   RESPONSIVE NAVIGATION
    ===================================== */
 
 nav {
-    background-color: rgba(0, 0, 0, 0.7);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
     padding: 15px;
-    margin-top: 10px;
 }
 
 nav a {
-    color: white;
-    font-weight: bold;
-    padding: 10px;
+
+    text-decoration: none;
+
+    padding: 10px 15px;
+
+    background-color: rgba(255,255,255,0.2);
+
+    border-radius: 5px;
 }
 /* =====================================
    LIST STYLING
@@ -412,4 +452,75 @@ select:focus {
     text-align: justify;
 
     line-height: 1.8;
+}
+/* =====================================
+   MEDIA QUERY
+   FOR MOBILE DEVICES
+   ===================================== */
+
+@media screen and (max-width: 768px) {
+
+    /* Navigation Links Vertical */
+
+    nav {
+
+        flex-direction: column;
+    }
+
+    nav a {
+
+        display: block;
+
+        width: 100%;
+
+        text-align: center;
+    }
+
+    /* Smaller Headings */
+
+    h1 {
+
+        font-size: 6vw;
+    }
+
+    h2 {
+
+        font-size: 5vw;
+    }
+
+    p {
+
+        font-size: 3.5vw;
+    }
+
+    /* Smaller Images */
+
+    .event-image {
+
+        width: 90%;
+
+        max-width: 200px;
+    }
+
+    /* Forms Full Width */
+
+    .registration-form,
+    .feedback-form {
+
+        width: 95%;
+    }
+
+    /* Tables Responsive */
+
+    table {
+
+        font-size: 12px;
+    }
+
+    /* Multi-column becomes single column */
+
+    .newsArticle {
+
+        column-count: 1;
+    }
 }
