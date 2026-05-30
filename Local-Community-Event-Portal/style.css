@@ -389,3 +389,27 @@ select:focus {
 
     margin: 10px;
 }
+/* =====================================
+   MULTI COLUMN NEWS ARTICLE
+   ===================================== */
+
+.newsArticle {
+
+    column-count: 2;
+
+    column-gap: 30px;
+
+    column-rule: 1px solid gray;
+
+    background-color: white;
+
+    padding: 20px;
+
+    margin: 20px;
+
+    border-radius: 10px;
+
+    text-align: justify;
+
+    line-height: 1.8;
+}
