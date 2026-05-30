@@ -142,3 +142,165 @@ function registerForEvent() {
         console.error(error);
     }
 }
+// =====================================
+// Functions, Scope, Closures,
+// Higher Order Functions
+// =====================================
+
+// Event Array
+
+let communityEvents = [
+
+    {
+        name: "Technology Workshop",
+        category: "Workshop"
+    },
+
+    {
+        name: "Health Camp",
+        category: "Health"
+    },
+
+    {
+        name: "Coding Workshop",
+        category: "Workshop"
+    }
+
+];
+
+
+// Function 1 - Add Event
+
+function addEvent() {
+
+    communityEvents.push({
+
+        name: "Sports Meet",
+
+        category: "Sports"
+
+    });
+
+    document.getElementById(
+        "functionOutput"
+    ).innerHTML =
+
+    "Sports Meet Added Successfully";
+
+    console.log(
+        "Sports Meet Added"
+    );
+}
+
+
+// Function 2 - Register User
+
+function registerUser() {
+
+    let totalRegistrations =
+        registrationCounter();
+
+    let currentCount =
+        totalRegistrations();
+
+    document.getElementById(
+        "functionOutput"
+    ).innerHTML =
+
+    `Total Registrations:
+     ${currentCount}`;
+}
+
+
+// Closure
+
+function registrationCounter() {
+
+    let count = 0;
+
+    return function() {
+
+        count++;
+
+        return count;
+    };
+}
+
+
+// Create One Global Counter
+
+const totalRegistrationTracker =
+    registrationCounter();
+
+
+// Updated Registration Function
+
+function registerUser() {
+
+    let count =
+        totalRegistrationTracker();
+
+    document.getElementById(
+        "functionOutput"
+    ).innerHTML =
+
+    `Total Registrations:
+     ${count}`;
+}
+
+
+// Function 3 - Filter Events
+
+function filterEventsByCategory(
+    category,
+    callback
+) {
+
+    let filteredEvents =
+
+        communityEvents.filter(
+
+            event =>
+
+            event.category === category
+
+        );
+
+    callback(filteredEvents);
+}
+
+
+// Callback Function
+
+function displayEvents(events) {
+
+    let output = "";
+
+    events.forEach(event => {
+
+        output +=
+
+        `<p>
+            ${event.name}
+         </p>`;
+
+    });
+
+    document.getElementById(
+        "filterOutput"
+    ).innerHTML = output;
+}
+
+
+// Dynamic Search
+
+function showWorkshopEvents() {
+
+    filterEventsByCategory(
+
+        "Workshop",
+
+        displayEvents
+
+    );
+}
