@@ -507,3 +507,90 @@ function showFormattedEvents() {
         "arrayOutput"
     ).innerHTML = output;
 }
+// =====================================
+// DOM Manipulation
+// =====================================
+
+// Event Data
+
+const domEvents = [
+
+    {
+        name: "Technology Workshop"
+    },
+
+    {
+        name: "Health Camp"
+    },
+
+    {
+        name: "Sports Meet"
+    }
+
+];
+
+
+// Display Events
+
+function displayEvents() {
+
+    // querySelector()
+
+    const container =
+
+        document.querySelector(
+            "#domEventContainer"
+        );
+
+    // Clear Existing Content
+
+    container.innerHTML = "";
+
+    // createElement()
+
+    domEvents.forEach(event => {
+
+        const card =
+
+            document.createElement("div");
+
+        card.className =
+            "eventCard";
+
+        card.innerHTML =
+
+            `<h4>${event.name}</h4>`;
+
+        // appendChild()
+
+        container.appendChild(card);
+
+    });
+
+}
+
+
+// Register Event
+
+function registerEvent() {
+
+    document.querySelector(
+        "#domStatus"
+    ).innerHTML =
+
+    "Successfully Registered!";
+
+}
+
+
+// Cancel Event
+
+function cancelEvent() {
+
+    document.querySelector(
+        "#domStatus"
+    ).innerHTML =
+
+    "Registration Cancelled";
+
+}
