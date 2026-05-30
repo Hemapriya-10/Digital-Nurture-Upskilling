@@ -108,6 +108,22 @@ body {
 <p id="registrationStatus"></p>
     </section>
 
+    <h3>Async JavaScript Demo</h3>
+
+<button onclick="fetchEventsUsingThen()">
+    Fetch Events (.then)
+</button>
+
+<button onclick="fetchEventsAsync()">
+    Fetch Events (Async/Await)
+</button>
+
+<br><br>
+
+<div id="loadingSpinner"></div>
+
+<div id="asyncOutput"></div>
+
 <h3>Functions and Closures Demo</h3>
 
 <button onclick="addEvent()">

@@ -707,3 +707,145 @@ function searchEvent() {
         "searchOutput"
     ).innerHTML = output;
 }
+// =====================================
+// Async JS, Promises, Async/Await
+// =====================================
+
+
+// Show Loading Spinner
+
+function showLoading() {
+
+    document.getElementById(
+        "loadingSpinner"
+    ).innerHTML =
+
+    "<h4>Loading...</h4>";
+}
+
+
+// Hide Loading Spinner
+
+function hideLoading() {
+
+    document.getElementById(
+        "loadingSpinner"
+    ).innerHTML = "";
+}
+
+
+// =====================================
+// FETCH USING .then() AND .catch()
+// =====================================
+
+function fetchEventsUsingThen() {
+
+    showLoading();
+
+    fetch(
+        "https://jsonplaceholder.typicode.com/users"
+    )
+
+    .then(response => {
+
+        return response.json();
+
+    })
+
+    .then(data => {
+
+        hideLoading();
+
+        let output =
+
+            "<h4>Events Loaded Using .then()</h4>";
+
+        data.slice(0,5).forEach(user => {
+
+            output +=
+
+            `<p>
+                ${user.name}
+             </p>`;
+
+        });
+
+        document.getElementById(
+            "asyncOutput"
+        ).innerHTML = output;
+
+    })
+
+    .catch(error => {
+
+        hideLoading();
+
+        document.getElementById(
+            "asyncOutput"
+        ).innerHTML =
+
+        "Error Loading Data";
+
+        console.error(error);
+
+    });
+
+}
+
+
+// =====================================
+// FETCH USING ASYNC/AWAIT
+// =====================================
+
+async function fetchEventsAsync() {
+
+    try {
+
+        showLoading();
+
+        const response =
+
+            await fetch(
+                "https://jsonplaceholder.typicode.com/users"
+            );
+
+        const data =
+            await response.json();
+
+        hideLoading();
+
+        let output =
+
+            "<h4>Events Loaded Using Async/Await</h4>";
+
+        data.slice(0,5).forEach(user => {
+
+            output +=
+
+            `<p>
+                ${user.name}
+             </p>`;
+
+        });
+
+        document.getElementById(
+            "asyncOutput"
+        ).innerHTML = output;
+
+    }
+
+    catch(error) {
+
+        hideLoading();
+
+        document.getElementById(
+            "asyncOutput"
+        ).innerHTML =
+
+        "Error Loading Data";
+
+        console.error(error);
+
+    }
+
+}
