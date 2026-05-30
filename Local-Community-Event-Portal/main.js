@@ -1108,7 +1108,15 @@ document
 // AJAX & Fetch API
 // =====================================
 
+// =====================================
+// Debugging and Testing
+// =====================================
+
 function submitRegistration() {
+
+    console.log(
+        "Registration process started"
+    );
 
     const registrationData = {
 
@@ -1120,7 +1128,10 @@ function submitRegistration() {
 
     };
 
-    // Show Loading Message
+    console.log(
+        "Registration Data:",
+        registrationData
+    );
 
     document.getElementById(
         "ajaxStatus"
@@ -1128,9 +1139,11 @@ function submitRegistration() {
 
     "<h4>Sending Registration...</h4>";
 
-    // Simulate Delay
-
     setTimeout(() => {
+
+        console.log(
+            "Sending Fetch Request..."
+        );
 
         fetch(
             "https://jsonplaceholder.typicode.com/posts",
@@ -1156,6 +1169,11 @@ function submitRegistration() {
 
         .then(response => {
 
+            console.log(
+                "Response Received:",
+                response
+            );
+
             if(!response.ok) {
 
                 throw new Error(
@@ -1169,46 +1187,42 @@ function submitRegistration() {
 
         .then(data => {
 
+            console.log(
+                "Response Data:",
+                data
+            );
+
             document.getElementById(
                 "ajaxStatus"
             ).innerHTML =
 
             `<h4 style="color:green;">
-
                 Registration Successful!
-
              </h4>
 
              <p>
-
                 Registration ID:
                 ${data.id}
-
              </p>`;
-
-            console.log(
-                "Success:",
-                data
-            );
 
         })
 
         .catch(error => {
+
+            console.error(
+                "Error:",
+                error
+            );
 
             document.getElementById(
                 "ajaxStatus"
             ).innerHTML =
 
             `<h4 style="color:red;">
-
                 Registration Failed
-
              </h4>`;
-
-            console.error(error);
-
         });
 
-    }, 2000); // 2 Second Delay
+    }, 2000);
 
 }
