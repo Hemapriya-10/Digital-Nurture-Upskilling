@@ -1226,3 +1226,55 @@ function submitRegistration() {
     }, 2000);
 
 }
+// =====================================
+// jQuery and JavaScript Frameworks
+// =====================================
+
+$(document).ready(function () {
+
+    // Click Event
+
+    $("#registerBtn").click(function () {
+
+        alert(
+            "Registered Successfully using jQuery!"
+        );
+
+    });
+
+    // Fade In
+
+    $("#showCardBtn").click(function () {
+
+        $("#jqueryCard").fadeIn(1000);
+
+    });
+
+    // Fade Out
+
+    $("#hideCardBtn").click(function () {
+
+        $("#jqueryCard").fadeOut(1000);
+
+    });
+
+    // Framework Benefit
+
+    $("#frameworkBenefit").html(
+
+        "<h4>Benefit of React/Vue</h4>" +
+
+        "<p>" +
+
+        "React and Vue provide component-based architecture, making large applications easier to develop, maintain, and scale."
+
+        +
+
+        "</p>"
+
+    );
+
+});
+git add .
+git commit -m "Completed JavaScript Exercise 14 - jQuery and Frameworks"
+git push origin main
