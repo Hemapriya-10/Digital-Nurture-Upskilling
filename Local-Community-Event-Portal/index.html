@@ -220,6 +220,67 @@ body {
     </ul>
 
 </section>
+
+<h3>Form Validation Demo</h3>
+
+<form id="registrationForm">
+
+    <label>Name:</label><br>
+
+    <input type="text"
+           name="userName">
+
+    <span id="nameError"
+          style="color:red;"></span>
+
+    <br><br>
+
+    <label>Email:</label><br>
+
+    <input type="email"
+           name="userEmail">
+
+    <span id="emailError"
+          style="color:red;"></span>
+
+    <br><br>
+
+    <label>Select Event:</label><br>
+
+    <select name="eventName">
+
+        <option value="">
+            Choose Event
+        </option>
+
+        <option value="Technology Workshop">
+            Technology Workshop
+        </option>
+
+        <option value="Health Camp">
+            Health Camp
+        </option>
+
+        <option value="Sports Meet">
+            Sports Meet
+        </option>
+
+    </select>
+
+    <span id="eventError"
+          style="color:red;"></span>
+
+    <br><br>
+
+    <button type="submit">
+        Register
+    </button>
+
+</form>
+
+<br>
+
+<div id="formOutput"></div>
 <h3>Modern JavaScript Features Demo</h3>
 
 <button onclick="showModernFeatures()">

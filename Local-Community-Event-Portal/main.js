@@ -968,3 +968,139 @@ async function fetchEventsAsync() {
     }
 
 }
+// =====================================
+// Working with Forms
+// =====================================
+
+document
+.getElementById(
+    "registrationForm"
+)
+.addEventListener(
+
+    "submit",
+
+    function(event) {
+
+        // Prevent Default Form Submission
+
+        event.preventDefault();
+
+        // Clear Previous Errors
+
+        document.getElementById(
+            "nameError"
+        ).innerHTML = "";
+
+        document.getElementById(
+            "emailError"
+        ).innerHTML = "";
+
+        document.getElementById(
+            "eventError"
+        ).innerHTML = "";
+
+        // form.elements
+
+        const form =
+
+            event.target;
+
+        const name =
+
+            form.elements[
+                "userName"
+            ].value;
+
+        const email =
+
+            form.elements[
+                "userEmail"
+            ].value;
+
+        const selectedEvent =
+
+            form.elements[
+                "eventName"
+            ].value;
+
+        let isValid = true;
+
+        // Name Validation
+
+        if(name.trim() === "") {
+
+            document.getElementById(
+                "nameError"
+            ).innerHTML =
+
+            "Name is required";
+
+            isValid = false;
+        }
+
+        // Email Validation
+
+        if(email.trim() === "") {
+
+            document.getElementById(
+                "emailError"
+            ).innerHTML =
+
+            "Email is required";
+
+            isValid = false;
+        }
+
+        // Event Validation
+
+        if(selectedEvent === "") {
+
+            document.getElementById(
+                "eventError"
+            ).innerHTML =
+
+            "Please select an event";
+
+            isValid = false;
+        }
+
+        // Success
+
+        if(isValid) {
+
+            document.getElementById(
+                "formOutput"
+            ).innerHTML =
+
+            `<h4>
+
+                Registration Successful
+
+             </h4>
+
+             <p>
+
+                Name:
+                ${name}
+
+             </p>
+
+             <p>
+
+                Email:
+                ${email}
+
+             </p>
+
+             <p>
+
+                Event:
+                ${selectedEvent}
+
+             </p>`;
+        }
+
+    }
+
+);
