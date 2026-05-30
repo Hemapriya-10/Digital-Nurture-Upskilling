@@ -1104,3 +1104,111 @@ document
     }
 
 );
+// =====================================
+// AJAX & Fetch API
+// =====================================
+
+function submitRegistration() {
+
+    const registrationData = {
+
+        name: "Hema Priya",
+
+        email: "hema@gmail.com",
+
+        event: "Technology Workshop"
+
+    };
+
+    // Show Loading Message
+
+    document.getElementById(
+        "ajaxStatus"
+    ).innerHTML =
+
+    "<h4>Sending Registration...</h4>";
+
+    // Simulate Delay
+
+    setTimeout(() => {
+
+        fetch(
+            "https://jsonplaceholder.typicode.com/posts",
+
+            {
+
+                method: "POST",
+
+                headers: {
+
+                    "Content-Type":
+                    "application/json"
+
+                },
+
+                body: JSON.stringify(
+                    registrationData
+                )
+
+            }
+
+        )
+
+        .then(response => {
+
+            if(!response.ok) {
+
+                throw new Error(
+                    "Registration Failed"
+                );
+            }
+
+            return response.json();
+
+        })
+
+        .then(data => {
+
+            document.getElementById(
+                "ajaxStatus"
+            ).innerHTML =
+
+            `<h4 style="color:green;">
+
+                Registration Successful!
+
+             </h4>
+
+             <p>
+
+                Registration ID:
+                ${data.id}
+
+             </p>`;
+
+            console.log(
+                "Success:",
+                data
+            );
+
+        })
+
+        .catch(error => {
+
+            document.getElementById(
+                "ajaxStatus"
+            ).innerHTML =
+
+            `<h4 style="color:red;">
+
+                Registration Failed
+
+             </h4>`;
+
+            console.error(error);
+
+        });
+
+    }, 2000); // 2 Second Delay
+
+}
