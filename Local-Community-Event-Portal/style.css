@@ -76,11 +76,23 @@ h2 {
    EVENT CARD TYPOGRAPHY
    ===================================== */
 
+/* =====================================
+   BOX MODEL DEMONSTRATION
+   ===================================== */
+
 .eventCard {
 
-    font-size: 18px;
+    background-color: rgba(255,255,255,0.95);
 
-    font-weight: 500;
+    border: 3px solid #444;
+
+    padding: 25px;
+
+    margin: 30px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 h3,
 p {
@@ -339,4 +351,41 @@ tr:nth-child(even) {
 tr:hover {
 
     background-color: #aed6f1;
+}
+/* =====================================
+   FORM OUTLINE DEMONSTRATION
+   ===================================== */
+
+input:focus,
+textarea:focus,
+select:focus {
+
+    outline: 3px solid orange;
+
+    border-color: blue;
+}
+/* =====================================
+   VISIBILITY DEMONSTRATION
+   ===================================== */
+
+.hiddenBox {
+
+    visibility: hidden;
+
+    background-color: yellow;
+
+    padding: 10px;
+
+    margin: 10px;
+}
+
+.noneBox {
+
+    display: none;
+
+    background-color: lightgreen;
+
+    padding: 10px;
+
+    margin: 10px;
 }
