@@ -737,7 +737,126 @@ function hideLoading() {
 // =====================================
 // FETCH USING .then() AND .catch()
 // =====================================
+// =====================================
+// Modern JavaScript Features
+// =====================================
 
+// const and let
+
+const modernEvents = [
+
+    {
+        name: "Technology Workshop",
+        category: "Workshop",
+        seats: 50
+    },
+
+    {
+        name: "Music Festival",
+        category: "Music",
+        seats: 100
+    },
+
+    {
+        name: "Health Camp",
+        category: "Health",
+        seats: 30
+    }
+
+];
+
+
+// Default Parameter Function
+
+function getEventInfo(
+    eventName = "Community Event"
+) {
+
+    return `Event Name: ${eventName}`;
+}
+
+
+// Display Modern Features
+
+function showModernFeatures() {
+
+    let output = "";
+
+    // Default Parameter
+
+    output +=
+        `<h4>Default Parameter</h4>
+         <p>
+            ${getEventInfo()}
+         </p>`;
+
+
+    // Destructuring
+
+    const {
+
+        name,
+
+        category,
+
+        seats
+
+    } = modernEvents[0];
+
+    output +=
+        `<h4>Destructuring Example</h4>
+
+         <p>
+            Name: ${name}
+         </p>
+
+         <p>
+            Category: ${category}
+         </p>
+
+         <p>
+            Seats: ${seats}
+         </p>`;
+
+
+    // Spread Operator
+
+    const clonedEvents =
+
+        [...modernEvents];
+
+    const filteredEvents =
+
+        clonedEvents.filter(
+
+            event =>
+
+            event.category === "Music"
+
+        );
+
+    output +=
+        `<h4>Spread Operator + Filter</h4>`;
+
+    filteredEvents.forEach(event => {
+
+        output +=
+
+        `<p>
+            ${event.name}
+         </p>`;
+
+    });
+
+    document.getElementById(
+        "modernOutput"
+    ).innerHTML = output;
+
+    console.log(
+        "Cloned Events:",
+        clonedEvents
+    );
+}
 function fetchEventsUsingThen() {
 
     showLoading();
